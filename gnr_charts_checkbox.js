@@ -30,8 +30,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
         
         indicatorSelect
         .append('label')
-        .text(theIndicator)
-        .attr("for", theIndicator);
+        .text(theIndicator);
     }
 
     var firstIndicator = [allIndicator[0]];
@@ -73,8 +72,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
             
             disaggregationSelect
             .append('label')
-            .text(theDisaggregation)
-            .attr("for", theDisaggregation);
+            .text(theDisaggregation);
         }
         var selectedDisaggregation = [allDisaggregation[0]];
         if(allDisaggregation.length > 1){
