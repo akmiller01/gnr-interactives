@@ -1,4 +1,4 @@
-function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
+function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortOrder=null){
     var chartNode = d3.select("#" + chart_id);
 
     var value_data = data.filter(function(d){return d.value != "" && d.value !== undefined})
@@ -64,7 +64,13 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     }
 
     function draw_line_chart(filteredData){
-      var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+      if(sortOrder !== null){
+        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort( function(a, b) {
+            return (sortOrder[a.disagg_value] - sortOrder[b.disagg_value]);
+        });
+      }else{
+        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+      }
       filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
@@ -168,7 +174,13 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     }
 
     function draw_bar_chart(filteredData){
-        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+        if(sortOrder !== null){
+          var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort( function(a, b) {
+            return (sortOrder[a.disagg_value] - sortOrder[b.disagg_value]);
+          });
+        }else{
+          var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+        }
         filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)

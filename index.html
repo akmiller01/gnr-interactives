@@ -53,7 +53,8 @@
         draw_gnr_chart("line","chart1", c1_data, margin2, width2, height2);
         c2_indicators = ["Salt", "Legumes", "Red meat", "Trans fat", "Saturated fat", "Calcium", "Polyunsaturated fat", "Omega 3", "Sugar-sweetened beverages", "Milk", "Vegetables", "Nuts and seeds", "Processed meat", "Fruit", "Whole grain"]
         c2_data = all_data.filter(function(d){return c2_indicators.includes(d.indicator)})
-        draw_gnr_chart("bar","chart2", c2_data, margin2, width2, height2);
+        c2_sort_order = {"National": 0, "Regional": 1, "Global": 2}
+        draw_gnr_chart("bar","chart2", c2_data, margin2, width2, height2, c2_sort_order);
         c3_data = all_data.filter(function(d){return d.indicator == "Undernourishment Prev"})
         draw_gnr_chart("line","chart3", c3_data, margin2, width2, height2);
         c4_indicators = ["Wasting Percent", "Stunting Percent", "Overweight percent"]
