@@ -2,7 +2,7 @@
   <head>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="gnr_charts_checkbox.js"></script>
+    <script src="gnr_charts.js"></script>
     <style>
       .tooltip {pointer-events: none;}
       .tooltip-bg {pointer-events: none;}
@@ -51,6 +51,9 @@
       var margin3 = {top: 10, right: 300, bottom: 30, left: 30},
         width3 = 800 - margin3.left - margin3.right,
         height3 = 200 - margin3.top - margin3.bottom;
+      var numberLineMargin = {top: 10, right: 200, bottom: 30, left: 100},
+      numberLineMarginwidth = 800 - numberLineMargin.left - numberLineMargin.right,
+      numberLineMarginheight = 200 - numberLineMargin.top - numberLineMargin.bottom;
       d3.json("burundi.json", function(all_data){
         c1_indicators = ["Minimum Accept Diet", "Minimum Diet Diversity", "Minimum Meal"]
         c1_data = all_data.filter(function(d){return c1_indicators.includes(d.indicator)})
@@ -60,7 +63,7 @@
         draw_gnr_chart("line","chart1-2", c1_2_data, margin2, width2, height2);
         c2_indicators = ["Salt", "Legumes", "Red meat", "Trans fat", "Saturated fat", "Calcium", "Polyunsaturated fat", "Omega 3", "Sugar-sweetened beverages", "Milk", "Vegetables", "Nuts and seeds", "Processed meat", "Fruit", "Whole grain"]
         c2_data = all_data.filter(function(d){return c2_indicators.includes(d.indicator)})
-        draw_gnr_chart("bar","chart2", c2_data, margin2, width2, height2);
+        draw_gnr_chart("numberline","chart2", c2_data, numberLineMargin, numberLineMarginwidth, numberLineMarginheight);
         c3_data = all_data.filter(function(d){return d.indicator == "Undernourishment Prev"})
         draw_gnr_chart("line","chart3", c3_data, margin2, width2, height2);
         c4_indicators = ["Wasting Percent", "Stunting Percent", "Overweight percent"]

@@ -1,3 +1,13 @@
+function scaleBandInvert(scale) {
+  var domain = scale.domain().reverse();
+  var bandWidth = scale.bandwidth()
+  var eachBand = scale.step();
+  return function (value) {
+    var index = Math.floor((value / eachBand));
+    return domain[Math.max(0,Math.min(index, domain.length-1))];
+  }
+}
+
 function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     var chartNode = d3.select("#" + chart_id);
 
@@ -68,6 +78,9 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     }else{
       disaggregationSelect.attr("style","display: none;")
     }
+    if(chart_type=="numberline"){
+        indicatorSelect.attr("style","display: none;")
+    }
 
     var svg = chartNode
       .append("svg")
@@ -88,6 +101,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
         }else{
             draw_bar_chart(filteredData);
         }
+      }else if(chart_type == "numberline"){
+          draw_numberline_chart(data)
       }
     }
 
@@ -284,7 +299,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
                   .text("");
                 tooltipBackground
                   .attr("style","opacity:0;");
-              });;
+              });
         }
         var last_legend_position = 0;
         for(var i = 0; i < allDisaggValues.length; i++){
@@ -330,6 +345,117 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
           .attr("class","tooltip-bg")
           .attr("fill","black")
           .attr("rx",5);
+    }
+
+    function draw_numberline_chart(filteredData){
+        var allIndicatorDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+        var allIndicatorValues = d3.map(filteredData, function(d){return d.indicator}).keys();
+        filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
+        var colorScale = d3.scaleOrdinal()
+          .domain(allDisaggValues)
+          .range(d3.schemeSet2);
+        var x = d3.scaleLinear()
+          .domain(d3.extent(filteredData, function(d) { return +d.value; }))
+          .range([0, width])
+          .nice();
+        var xAxis = d3.axisBottom(x).ticks(7);
+        svg.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+        var y = d3.scaleBand()
+          .domain(allIndicatorValues)
+          .range([ height, 0 ]);
+        var halfBandwidth = y.bandwidth()/2;
+        var yAxis = d3.axisLeft().scale(y).tickSize(-width).tickSizeOuter(0);
+        svg.append("g")
+          .call(yAxis);
+        var disaggScale = d3.scaleBand()
+            .domain(allIndicatorDisaggValues)
+            .range([0, width]);
+        for(var i = 0; i < allIndicatorDisaggValues.length; i++){
+          svg.append("circle")
+            .data(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) == allIndicatorDisaggValues[i]}))
+            .attr("cx", function(d){return x(d.value)})
+            .attr("cy", function(d){return y(d.indicator) + halfBandwidth})
+            .attr("stroke", function(d){ return colorScale(d.disagg_value) })
+            .style("stroke-width", 1)
+            .attr("r", 4)
+            .attr("fill", "none");
+        }
+        var last_legend_position = 0;
+        for(var i = 0; i < allDisaggValues.length; i++){
+          last_legend_position += 1
+          svg
+            .append("circle")
+            .attr("cx", width + 10)
+            .attr("cy", i*15 - (10/2))
+            .attr("r", 4)
+            .style("stroke", function(d){ return colorScale(allDisaggValues[i]) })
+            .attr("fill", "none");
+          svg
+            .append("text")
+            .attr("x", width + 25)
+            .attr("y", i*15 + 4)
+            .style("fill", "#443e42")
+            .text(function(d){ return allDisaggValues[i] })
+            .attr("text-anchor", "left")
+            .style("font-size", "10px");
+        }
+  
+    var highlight = svg
+        .append("circle")
+        .attr("r", 4)
+        .attr("style","opacity:0;");
+
+      var tooltip = svg.append("text")
+        .attr("class","tooltip")
+        .attr("font-size",12);
+      var tooltipBackground = svg.append("rect")
+        .attr("class","tooltip-bg")
+        .attr("fill","black")
+        .attr("rx",5);
+
+      svg.append("rect")
+        .attr("style","opacity:0;")
+        .attr("width", width)
+        .attr("height", height)
+        .on("mousemove", function(){
+          var mouse_position = d3.mouse(this);
+          var x_pos = x.invert(mouse_position[0]);
+          var y_pos = scaleBandInvert(y)(mouse_position[1]);
+          var filtered_data_by_y = filteredData.filter(function(d){ return d.indicator == y_pos});
+          var closest_x_distance = d3.min(filtered_data_by_y, function(d){ return Math.abs(x_pos - d.value)});
+          var closest_x = filtered_data_by_y.filter(function(d){return Math.abs(x_pos - d.value) == closest_x_distance})[0].value;
+          var highlight_data = filtered_data_by_y.filter(function(d){ return d.value == closest_x });
+          tooltip
+          .attr("x",mouse_position[0] + 5)
+          .attr("y",mouse_position[1])
+          .text(
+            parseFloat(highlight_data[0].value).toFixed(2)
+          );
+          var tooltip_bbox = tooltip.node().getBBox();
+          tooltipBackground
+          .attr("x",tooltip_bbox.x - 2)
+          .attr("y",tooltip_bbox.y - 2)
+          .attr("height", tooltip_bbox.height + 4)
+          .attr("width", tooltip_bbox.width + 4)
+          .attr("style","opacity: 0.1;");
+          highlight
+            .data(highlight_data)
+            .attr("cx", function(d){return x(d.value)})
+            .attr("cy", function(d){return y(d.indicator) + halfBandwidth})
+            .attr("fill", function(d){return colorScale(d.disagg_value) })
+            .attr("style","opacity:1;");
+        })
+        .on('mouseout', function(){
+          tooltip
+            .text("");
+          tooltipBackground
+            .attr("style","opacity:0;");
+          highlight
+            .attr("style","opacity:0;");
+        });
     }
 
     function clean_up(){
