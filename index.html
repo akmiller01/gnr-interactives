@@ -2,7 +2,7 @@
   <head>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="gnr_charts.js"></script>
+    <script src="gnr_charts_checkbox.js"></script>
     <style>
       .tooltip {pointer-events: none;}
       .tooltip-bg {pointer-events: none;}
@@ -15,46 +15,52 @@
   </head>
   <body>
     <h1>Diet</h1>
-    <div class="chart-wrapper-half">
+    <div class="chart-wrapper-full">
       <h2>Infant and young child feeding</h2>
       <div id="chart1"></div>
     </div>
-    <div class="chart-wrapper-half">
+    <div class="chart-wrapper-full">
+      <h2>Infant and young child feeding</h2>
+      <div id="chart1-2"></div>
+    </div>
+    <div class="chart-wrapper-full">
       <h2>Dietary intake</h2>
       <div id="chart2"></div>
     </div>
-    <div class="chart-wrapper-half">
+    <div class="chart-wrapper-full">
       <h2>Prevalence of undernourishment</h2>
       <div id="chart3"></div>
     </div>
     <h1>Nutrition related disease</h1>
-    <div class="chart-wrapper-third">
+    <div class="chart-wrapper-full">
       <h2>Infant and young child (under-five) at national level</h2>
       <div id="chart4"></div>
     </div>
-    <div class="chart-wrapper-third">
+    <div class="chart-wrapper-full">
       <h2>Child and adolescent (aged 5-19)</h2>
       <div id="chart5"></div>
     </div>
-    <div class="chart-wrapper-third">
+    <div class="chart-wrapper-full">
       <h2>Adult</h2>
       <div id="chart6"></div>
     </div>
     <script>
-      var margin2 = {top: 10, right: 120, bottom: 30, left: 30},
-        width2 = 400 - margin2.left - margin2.right,
+      var margin2 = {top: 10, right: 300, bottom: 30, left: 30},
+        width2 = 800 - margin2.left - margin2.right,
         height2 = 200 - margin2.top - margin2.bottom;
-      var margin3 = {top: 10, right: 120, bottom: 30, left: 30},
-        width3 = 300 - margin3.left - margin3.right,
+      var margin3 = {top: 10, right: 300, bottom: 30, left: 30},
+        width3 = 800 - margin3.left - margin3.right,
         height3 = 200 - margin3.top - margin3.bottom;
       d3.json("burundi.json", function(all_data){
-        c1_indicators = ["Continued Breastfeeding 2yr", "Continued Breastfeeding 1yr", "Minimum Accept Diet", "Minimum Diet Diversity", "Minimum Meal", "Solid Foods", "Exclusive Breastfeeding", "Early Initiation"]
+        c1_indicators = ["Minimum Accept Diet", "Minimum Diet Diversity", "Minimum Meal"]
         c1_data = all_data.filter(function(d){return c1_indicators.includes(d.indicator)})
         draw_gnr_chart("line","chart1", c1_data, margin2, width2, height2);
+        c1_2_indicators = ["Continued Breastfeeding 2yr", "Continued Breastfeeding 1yr", "Solid Foods", "Exclusive Breastfeeding", "Early Initiation"]
+        c1_2_data = all_data.filter(function(d){return c1_2_indicators.includes(d.indicator)})
+        draw_gnr_chart("line","chart1-2", c1_2_data, margin2, width2, height2);
         c2_indicators = ["Salt", "Legumes", "Red meat", "Trans fat", "Saturated fat", "Calcium", "Polyunsaturated fat", "Omega 3", "Sugar-sweetened beverages", "Milk", "Vegetables", "Nuts and seeds", "Processed meat", "Fruit", "Whole grain"]
         c2_data = all_data.filter(function(d){return c2_indicators.includes(d.indicator)})
-        c2_sort_order = {"National": 0, "Regional": 1, "Global": 2}
-        draw_gnr_chart("bar","chart2", c2_data, margin2, width2, height2, c2_sort_order);
+        draw_gnr_chart("bar","chart2", c2_data, margin2, width2, height2);
         c3_data = all_data.filter(function(d){return d.indicator == "Undernourishment Prev"})
         draw_gnr_chart("line","chart3", c3_data, margin2, width2, height2);
         c4_indicators = ["Wasting Percent", "Stunting Percent", "Overweight percent"]

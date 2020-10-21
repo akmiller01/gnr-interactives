@@ -1,4 +1,4 @@
-function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortOrder=null){
+function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     var chartNode = d3.select("#" + chart_id);
 
     var value_data = data.filter(function(d){return d.value != "" && d.value !== undefined})
@@ -10,19 +10,64 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
 
     var allIndicator = d3.map(data, function(d){return(d.indicator)}).keys();
     var indicatorSelect = chartNode
-      .append("select");
-    indicatorSelect
-      .selectAll('option')
-      .data(allIndicator)
-      .enter()
-      .append('option')
-      .text(function (d) { return d; })
-      .attr("value", function (d) { return d; });
+      .append("div");
+    for(var i = 0; i < allIndicator.length; i++){
+        theIndicator = allIndicator[i]
+        if(i == 0){
+        indicatorSelect
+          .append("input")
+          .attr("value", theIndicator)
+          .attr("id", theIndicator)
+          .attr("type", "checkbox")
+          .attr("checked", true);
+        }else{
+          indicatorSelect
+            .append("input")
+            .attr("value", theIndicator)
+            .attr("id", theIndicator)
+            .attr("type", "checkbox");
+        }
+        
+        indicatorSelect
+        .append('label')
+        .text(theIndicator);
+    }
 
-    var firstIndicator = allIndicator[0];
+    var firstIndicator = [allIndicator[0]];
 
     var disaggregationSelect = chartNode
-      .append("select");
+      .append("div");
+
+    var allDisaggregation = d3.map(data, function(d){return(d.disaggregation)}).keys();
+    for(var i = 0; i < allDisaggregation.length; i++){
+        theDisaggregation = allDisaggregation[i]
+        if(i == 0){
+          disaggregationSelect
+          .append("input")
+          .attr("value", theDisaggregation)
+          .attr("id", theDisaggregation)
+          .attr("type", "radio")
+          .attr("name", chart_id)
+          .attr("checked", true);
+        }else{
+            disaggregationSelect
+            .append("input")
+            .attr("value", theDisaggregation)
+            .attr("id", theDisaggregation)
+            .attr("type", "radio")
+            .attr("name", chart_id);
+        }
+        
+        disaggregationSelect
+        .append('label')
+        .text(theDisaggregation);
+    }
+    var firstDisaggregation = [allDisaggregation[0]];
+    if(allDisaggregation.length > 1){
+      disaggregationSelect.attr("style","display: inline;")
+    }else{
+      disaggregationSelect.attr("style","display: none;")
+    }
 
     var svg = chartNode
       .append("svg")
@@ -35,24 +80,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
 
     function draw_chart(selectedIndicator, selectedDisaggregation){
       clean_up();
-      if(selectedDisaggregation === null){
-        disaggregationSelect.selectAll("option").remove();
-        var allDisaggregation = d3.map(data.filter(function(d){return d.indicator == selectedIndicator}), function(d){return(d.disaggregation)}).keys();
-        disaggregationSelect
-          .selectAll('option')
-          .data(allDisaggregation)
-          .enter()
-          .append('option')
-          .text(function (d) { return d; })
-          .attr("value", function (d) { return d; });
-        var selectedDisaggregation = allDisaggregation[0];
-        if(allDisaggregation.length > 1){
-          disaggregationSelect.attr("style","display: inline;")
-        }else{
-          disaggregationSelect.attr("style","display: none;")
-        }
-      }
-      var filteredData = data.filter(function(d){ return d.indicator == selectedIndicator && d.disaggregation == selectedDisaggregation});
+      var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation.includes(d.disaggregation)});
       var allYears = d3.map(filteredData, function(d){return(d.year)}).keys();
       if(chart_type == "line" || chart_type == "bar"){
         if(allYears.length > 1){
@@ -64,14 +92,13 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
     }
 
     function draw_line_chart(filteredData){
-      if(sortOrder !== null){
-        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort( function(a, b) {
-            return (sortOrder[a.disagg_value] - sortOrder[b.disagg_value]);
-        });
-      }else{
-        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
-      }
+      var allIndicatorDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+      var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+      var allIndicatorValues = d3.map(filteredData, function(d){return d.indicator}).keys();
       filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
+      var lineScale = d3.scaleOrdinal()
+        .domain(allIndicatorValues)
+        .range(["1,0", "3, 3", "3, 1, 3", "1, 1", "10, 10", "1, 1, 2, 1", "5, 5, 1, 5"]);
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
         .range(d3.schemeSet2);
@@ -89,16 +116,21 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
       var yAxis = d3.axisLeft().ticks(7).scale(y);
       svg.append("g")
         .call(yAxis);
-      for(var i = 0; i < allDisaggValues.length; i++){
+      for(var i = 0; i < allIndicatorDisaggValues.length; i++){
         svg.append("path")
-          .datum(filteredData.filter(function(d){return d.disagg_value == allDisaggValues[i]}))
+          .datum(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) ==allIndicatorDisaggValues[i]}))
           .attr("d", d3.line()
             .x(function(d) { return x(d.year) })
             .y(function(d) { return y(+d.value) })
           )
-          .attr("stroke", function(d){ return colorScale(allDisaggValues[i]) })
+          .attr("stroke", function(d){ return colorScale(d[0].disagg_value) })
+          .attr("stroke-dasharray", function(d){ return lineScale(d[0].indicator)})
           .style("stroke-width", 2)
           .style("fill", "none");
+      }
+      var last_legend_position = 0;
+      for(var i = 0; i < allDisaggValues.length; i++){
+        last_legend_position += 1
         svg
           .append("rect")
           .attr("x", width + 10)
@@ -112,6 +144,23 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
           .attr("y", i*15 + 4)
           .style("fill", "#443e42")
           .text(function(d){ return allDisaggValues[i] })
+          .attr("text-anchor", "left")
+          .style("font-size", "10px");
+      }
+      for(var i = 0; i < allIndicatorValues.length; i++){
+        svg
+          .append("path")
+          .attr("d", function(d){return "m " + width + " " + ((i+last_legend_position)*15) + " H " + (width + 20) })
+          .attr("stroke", "black")
+          .style("stroke-width", 2)
+          .style("fill", "none")
+          .style("stroke-dasharray", lineScale(allIndicatorValues[i]));
+        svg
+          .append("text")
+          .attr("x", width + 25)
+          .attr("y", (i+last_legend_position)*15 + 4)
+          .style("fill", "#443e42")
+          .text(function(d){ return allIndicatorValues[i] })
           .attr("text-anchor", "left")
           .style("font-size", "10px");
       }
@@ -174,14 +223,13 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
     }
 
     function draw_bar_chart(filteredData){
-        if(sortOrder !== null){
-          var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort( function(a, b) {
-            return (sortOrder[a.disagg_value] - sortOrder[b.disagg_value]);
-          });
-        }else{
-          var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
-        }
+        var allIndicatorDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+        var allIndicatorValues = d3.map(filteredData, function(d){return d.indicator}).keys();
         filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
+        var lineScale = d3.scaleOrdinal()
+        .domain(allIndicatorValues)
+        .range(["1,0", "3, 3", "3, 1, 3", "1, 1", "10, 10", "1, 1, 2, 1", "5, 5, 1, 5"]);
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)
           .range(d3.schemeSet2);
@@ -201,17 +249,19 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
         svg.append("g")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
-            .domain(allDisaggValues)
+            .domain(allIndicatorDisaggValues)
             .range([0, width])
             .padding(0.2);
-        for(var i = 0; i < allDisaggValues.length; i++){
+        for(var i = 0; i < allIndicatorDisaggValues.length; i++){
           svg.append("rect")
-            .data(filteredData.filter(function(d){return d.disagg_value == allDisaggValues[i]}))
-            .attr("x", function(d){return disaggScale(allDisaggValues[i])})
+            .data(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) == allIndicatorDisaggValues[i]}))
+            .attr("x", function(d){return disaggScale(allIndicatorDisaggValues[i])})
             .attr("y", function(d){return y(d.value)})
             .attr("height", function(d){return height - y(d.value)})
             .attr("width", disaggScale.bandwidth())
-            .attr("fill", function(d){ return colorScale(allDisaggValues[i]) })
+            .attr("fill", function(d){ return colorScale(d.disagg_value) })
+            .attr("stroke", "black")
+            .attr("stroke-dasharray", function(d){return lineScale(d.indicator)})
             .style("stroke-width", 2)
             .on("mousemove", function(highlight_data){
                 var mouse_position = d3.mouse(this);
@@ -235,6 +285,10 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
                 tooltipBackground
                   .attr("style","opacity:0;");
               });;
+        }
+        var last_legend_position = 0;
+        for(var i = 0; i < allDisaggValues.length; i++){
+          last_legend_position += 1
           svg
             .append("rect")
             .attr("x", width + 10)
@@ -248,6 +302,23 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
             .attr("y", i*15 + 4)
             .style("fill", "#443e42")
             .text(function(d){ return allDisaggValues[i] })
+            .attr("text-anchor", "left")
+            .style("font-size", "10px");
+        }
+        for(var i = 0; i < allIndicatorValues.length; i++){
+          svg
+            .append("path")
+            .attr("d", function(d){return "m " + width + " " + ((i+last_legend_position)*15) + " H " + (width + 20) })
+            .attr("stroke", "black")
+            .style("stroke-width", 2)
+            .style("fill", "none")
+            .style("stroke-dasharray", lineScale(allIndicatorValues[i]));
+          svg
+            .append("text")
+            .attr("x", width + 25)
+            .attr("y", (i+last_legend_position)*15 + 4)
+            .style("fill", "#443e42")
+            .text(function(d){ return allIndicatorValues[i] })
             .attr("text-anchor", "left")
             .style("font-size", "10px");
         }
@@ -265,12 +336,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, sortO
       svg.selectAll("*").remove();
     }
 
-    draw_chart(firstIndicator, null);
+    draw_chart(firstIndicator, firstDisaggregation);
 
     indicatorSelect.on("change", function(d) {
-        draw_chart(indicatorSelect.property("value"), null)
+        var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
+        var selectedDisaggregations = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
+        draw_chart(selectedIndicators, selectedDisaggregations)
     });
     disaggregationSelect.on("change", function(d) {
-        draw_chart(indicatorSelect.property("value"), disaggregationSelect.property("value"))
+        var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
+        var selectedDisaggregations = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
+        draw_chart(selectedIndicators, selectedDisaggregations)
     });
   }
