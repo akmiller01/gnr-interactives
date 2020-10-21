@@ -38,6 +38,37 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     var disaggregationSelect = chartNode
       .append("div");
 
+    var allDisaggregation = d3.map(data, function(d){return(d.disaggregation)}).keys();
+    for(var i = 0; i < allDisaggregation.length; i++){
+        theDisaggregation = allDisaggregation[i]
+        if(i == 0){
+          disaggregationSelect
+          .append("input")
+          .attr("value", theDisaggregation)
+          .attr("id", theDisaggregation)
+          .attr("type", "radio")
+          .attr("name", chart_id)
+          .attr("checked", true);
+        }else{
+            disaggregationSelect
+            .append("input")
+            .attr("value", theDisaggregation)
+            .attr("id", theDisaggregation)
+            .attr("type", "radio")
+            .attr("name", chart_id);
+        }
+        
+        disaggregationSelect
+        .append('label')
+        .text(theDisaggregation);
+    }
+    var firstDisaggregation = [allDisaggregation[0]];
+    if(allDisaggregation.length > 1){
+      disaggregationSelect.attr("style","display: inline;")
+    }else{
+      disaggregationSelect.attr("style","display: none;")
+    }
+
     var svg = chartNode
       .append("svg")
         .attr('preserveAspectRatio', 'xMinYMin meet')
@@ -49,40 +80,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
 
     function draw_chart(selectedIndicator, selectedDisaggregation){
       clean_up();
-      if(selectedDisaggregation === null){
-        disaggregationSelect.selectAll("input").remove();
-        disaggregationSelect.selectAll("label").remove();
-        var allDisaggregation = d3.map(data.filter(function(d){return selectedIndicator.includes(d.indicator)}), function(d){return(d.disaggregation)}).keys();
-        for(var i = 0; i < allDisaggregation.length; i++){
-            theDisaggregation = allDisaggregation[i]
-            if(i == 0){
-              disaggregationSelect
-              .append("input")
-              .attr("value", theDisaggregation)
-              .attr("id", theDisaggregation)
-              .attr("type", "radio")
-              .attr("name", chart_id)
-              .attr("checked", true);
-            }else{
-                disaggregationSelect
-                .append("input")
-                .attr("value", theDisaggregation)
-                .attr("id", theDisaggregation)
-                .attr("type", "radio")
-                .attr("name", chart_id);
-            }
-            
-            disaggregationSelect
-            .append('label')
-            .text(theDisaggregation);
-        }
-        var selectedDisaggregation = [allDisaggregation[0]];
-        if(allDisaggregation.length > 1){
-          disaggregationSelect.attr("style","display: inline;")
-        }else{
-          disaggregationSelect.attr("style","display: none;")
-        }
-      }
       var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation.includes(d.disaggregation)});
       var allYears = d3.map(filteredData, function(d){return(d.year)}).keys();
       if(chart_type == "line" || chart_type == "bar"){
@@ -284,11 +281,12 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
       svg.selectAll("*").remove();
     }
 
-    draw_chart(firstIndicator, null);
+    draw_chart(firstIndicator, firstDisaggregation);
 
     indicatorSelect.on("change", function(d) {
         var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
-        draw_chart(selectedIndicators, null)
+        var selectedDisaggregations = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
+        draw_chart(selectedIndicators, selectedDisaggregations)
     });
     disaggregationSelect.on("change", function(d) {
         var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
