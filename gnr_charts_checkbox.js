@@ -92,7 +92,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     }
 
     function draw_line_chart(filteredData){
-      var allDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+      var allIndicatorDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+      var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
       filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
@@ -111,16 +112,18 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
       var yAxis = d3.axisLeft().ticks(7).scale(y);
       svg.append("g")
         .call(yAxis);
-      for(var i = 0; i < allDisaggValues.length; i++){
+      for(var i = 0; i < allIndicatorDisaggValues.length; i++){
         svg.append("path")
-          .datum(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) == allDisaggValues[i]}))
+          .datum(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) ==allIndicatorDisaggValues[i]}))
           .attr("d", d3.line()
             .x(function(d) { return x(d.year) })
             .y(function(d) { return y(+d.value) })
           )
-          .attr("stroke", function(d){ return colorScale(allDisaggValues[i]) })
+          .attr("stroke", function(d){ return colorScale(d[0].disagg_value) })
           .style("stroke-width", 2)
           .style("fill", "none");
+      }
+      for(var i = 0; i < allDisaggValues.length; i++){
         svg
           .append("rect")
           .attr("x", width + 10)
@@ -196,7 +199,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     }
 
     function draw_bar_chart(filteredData){
-        var allDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+        var allIndicatorDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
+        var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
         filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)
@@ -217,17 +221,17 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
         svg.append("g")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
-            .domain(allDisaggValues)
+            .domain(allIndicatorDisaggValues)
             .range([0, width])
             .padding(0.2);
-        for(var i = 0; i < allDisaggValues.length; i++){
+        for(var i = 0; i < allIndicatorDisaggValues.length; i++){
           svg.append("rect")
-            .data(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) == allDisaggValues[i]}))
-            .attr("x", function(d){return disaggScale(allDisaggValues[i])})
+            .data(filteredData.filter(function(d){return (d.indicator +  ": " + d.disagg_value) == allIndicatorDisaggValues[i]}))
+            .attr("x", function(d){return disaggScale(allIndicatorDisaggValues[i])})
             .attr("y", function(d){return y(d.value)})
             .attr("height", function(d){return height - y(d.value)})
             .attr("width", disaggScale.bandwidth())
-            .attr("fill", function(d){ return colorScale(allDisaggValues[i]) })
+            .attr("fill", function(d){ return colorScale(d.disagg_value) })
             .style("stroke-width", 2)
             .on("mousemove", function(highlight_data){
                 var mouse_position = d3.mouse(this);
@@ -251,6 +255,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
                 tooltipBackground
                   .attr("style","opacity:0;");
               });;
+        }
+        for(var i = 0; i < allDisaggValues.length; i++){
           svg
             .append("rect")
             .attr("x", width + 10)
