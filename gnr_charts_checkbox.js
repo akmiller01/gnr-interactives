@@ -60,14 +60,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
               .append("input")
               .attr("value", theDisaggregation)
               .attr("id", theDisaggregation)
-              .attr("type", "checkbox")
+              .attr("type", "radio")
+              .attr("name", chart_id)
               .attr("checked", true);
             }else{
                 disaggregationSelect
                 .append("input")
                 .attr("value", theDisaggregation)
                 .attr("id", theDisaggregation)
-                .attr("type", "checkbox");
+                .attr("type", "radio")
+                .attr("name", chart_id);
             }
             
             disaggregationSelect
