@@ -383,13 +383,11 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
             .attr("r", 4)
             .attr("fill", "none");
         }
-        var last_legend_position = 0;
         for(var i = 0; i < allDisaggValues.length; i++){
-          last_legend_position += 1
           svg
             .append("circle")
             .attr("cx", width + 10)
-            .attr("cy", i*15 - (10/2))
+            .attr("cy", i*15)
             .attr("r", 4)
             .style("stroke", function(d){ return colorScale(allDisaggValues[i]) })
             .attr("fill", "none");
