@@ -1,3 +1,43 @@
+pal = {
+  "dark_orange": "#DE5D09",
+  "orange": "#F39000",
+  "light_orange": "#FCC97A",
+  "dark_aqua": "#007495",
+  "aqua": "#93CAC9",
+  "aqua_light": "#B2D8D7",
+  "aqua_extra_light": "#D1E7E5",
+  "dark_grey": "#475C6D",
+  "grey": "#A0ADBB",
+  "light_grey": "#CFD9E5"
+}
+
+// orangeColor <- scale_color_manual(values=c(orange))
+pal1_a = [pal.orange]
+// blueColor <- scale_color_manual(values=c(blue))
+pal1_b = [pal.aqua]
+// orangeYellowColor <- scale_color_manual(values=c(orange,yellow))
+pal2_a = [pal.orange, pal.light_orange]
+// redYellowColor <- scale_color_manual(values=c(red,yellow))
+pal2_b = [pal.dark_orange, pal.light_orange]
+// yellowRedColor <- scale_color_manual(values=c(yellow,red))
+pal2_c = [pal.light_orange, pal.dark_orange]
+// orangeLightBlueColor <- scale_color_manual(values=c(orange,light.blue))
+pal2_d = [pal.orange, pal.aqua_light]
+// YellowRedGreyColor <- scale_color_manual(values=c(yellow,red,grey))
+pal3 = [pal.light_orange, pal.dark_orange, pal.grey]
+// lightBlueYellowRedColor <- scale_color_manual(values=c(light.blue,yellow,red))
+pal4_a = [pal.aqua_light, pal.light_orange, pal.dark_orange]
+// fourColor <- scale_color_manual(values=c(red,yellow,light.blue,grey))
+pal4_b = [pal.dark_orange, pal.light_orange, pal.aqua_light, pal.grey]
+// quintileColor <-  scale_color_manual(values=c(red, orange, yellow, lighter.blue, light.blue))
+pal5_a = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_extra_light, pal.aqua_light]
+// quintileGreyColor <-  scale_color_manual(values=c(red, orange, yellow, lighter.blue, grey))
+pal5_b = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_light, pal.grey]
+// sixColor <- scale_color_manual(values=c(red, orange, yellow, lighter.blue, light.blue,grey))
+pal6 = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_light, pal.aqua, pal.grey]
+// trmelColor = scale_color_manual(values=c(red,yellow,light.blue))
+pal_trmel = [pal.dark_orange, pal.light_orange, pal.aqua_light]
+
 function scaleBandInvert(scale) {
   var domain = scale.domain().reverse();
   var bandWidth = scale.bandwidth()
