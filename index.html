@@ -45,6 +45,47 @@
       <div id="chart6"></div>
     </div>
     <script>
+      var legend_orders = {
+        "Gender":{
+          "Boys": pal.orange,
+          "Girls": pal.aqua,
+          "Both": pal.grey,
+          "Male": pal.orange,
+          "Female": pal.aqua
+        },
+        "Location":{
+          "Urban": pal.light_orange,
+          "Rural": pal.dark_orange,
+          "National": pal.dark_orange,
+          "Regional": pal.light_orange,
+          "Global": pal.aqua
+        },
+        "Income":{
+          "Lowest": pal.dark_orange,
+          "Second lowest": pal.orange,
+          "Middle": pal.light_orange,
+          "Second highest": pal.aqua_light,
+          "Highest": pal.aqua
+        },
+        "Education":{
+          "None or primary": pal.light_orange,
+          "Secondary or higher": pal.dark_orange
+        },
+        "Age":{
+          "0-1 months": pal.dark_orange,
+          "2-3 months": pal.light_orange,
+          "4-5 months": pal.aqua,
+          "6-11 months": pal.dark_orange,
+          "12-15 months": pal.orange,
+          "16-19 months": pal.light_orange,
+          "20-23 months": pal.aqua_light,
+        },
+        "Pregnancy":{
+          "All women": pal.aqua,
+          "Pregnant women": pal.light_orange,
+          "Non-pregnant women": pal.dark_orange
+        }
+      }
       var margin2 = {top: 10, right: 300, bottom: 30, left: 30},
         width2 = 800 - margin2.left - margin2.right,
         height2 = 200 - margin2.top - margin2.bottom;
@@ -57,24 +98,24 @@
       d3.json("burundi.json", function(all_data){
         c1_indicators = ["Minimum Accept Diet", "Minimum Diet Diversity", "Minimum Meal"]
         c1_data = all_data.filter(function(d){return c1_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart1", c1_data, margin2, width2, height2);
+        draw_gnr_chart("line","chart1", c1_data, margin2, width2, height2, legend_orders);
         c1_2_indicators = ["Continued Breastfeeding 2yr", "Continued Breastfeeding 1yr", "Solid Foods", "Exclusive Breastfeeding", "Early Initiation"]
         c1_2_data = all_data.filter(function(d){return c1_2_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart1-2", c1_2_data, margin2, width2, height2);
+        draw_gnr_chart("line","chart1-2", c1_2_data, margin2, width2, height2, legend_orders);
         c2_indicators = ["Salt", "Legumes", "Red meat", "Trans fat", "Saturated fat", "Calcium", "Polyunsaturated fat", "Omega 3", "Sugar-sweetened beverages", "Milk", "Vegetables", "Nuts and seeds", "Processed meat", "Fruit", "Whole grain"]
         c2_data = all_data.filter(function(d){return c2_indicators.includes(d.indicator)})
-        draw_gnr_chart("numberline","chart2", c2_data, numberLineMargin, numberLineMarginwidth, numberLineMarginheight);
+        draw_gnr_chart("numberline","chart2", c2_data, numberLineMargin, numberLineMarginwidth, numberLineMarginheight, legend_orders);
         c3_data = all_data.filter(function(d){return d.indicator == "Undernourishment Prev"})
-        draw_gnr_chart("line","chart3", c3_data, margin2, width2, height2);
+        draw_gnr_chart("line","chart3", c3_data, margin2, width2, height2, legend_orders);
         c4_indicators = ["Wasting Percent", "Stunting Percent", "Overweight percent"]
         c4_data = all_data.filter(function(d){return c4_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart4", c4_data, margin3, width3, height3);
+        draw_gnr_chart("line","chart4", c4_data, margin3, width3, height3, legend_orders);
         c5_indicators = ["Adolescent Obesity", "Adolenscent Overweight", "Adolescent Underweight"]
         c5_data = all_data.filter(function(d){return c5_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart5", c5_data, margin3, width3, height3);
+        draw_gnr_chart("line","chart5", c5_data, margin3, width3, height3, legend_orders);
         c6_indicators = ["Adult Anemia", "Adult Blood Pressure", "Adult Diabetes", "Adult Obesity", "Adult Overweight", "Adult Sodium"]
         c6_data = all_data.filter(function(d){return c6_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart6", c6_data, margin3, width3, height3);
+        draw_gnr_chart("line","chart6", c6_data, margin3, width3, height3, legend_orders);
       });
     </script>
   </body>

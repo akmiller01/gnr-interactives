@@ -1,4 +1,4 @@
-pal = {
+var pal = {
   "dark_orange": "#DE5D09",
   "orange": "#F39000",
   "light_orange": "#FCC97A",
@@ -9,34 +9,9 @@ pal = {
   "dark_grey": "#475C6D",
   "grey": "#A0ADBB",
   "light_grey": "#CFD9E5"
-}
+};
 
-// orangeColor <- scale_color_manual(values=c(orange))
-pal1_a = [pal.orange]
-// blueColor <- scale_color_manual(values=c(blue))
-pal1_b = [pal.aqua]
-// orangeYellowColor <- scale_color_manual(values=c(orange,yellow))
-pal2_a = [pal.orange, pal.light_orange]
-// redYellowColor <- scale_color_manual(values=c(red,yellow))
-pal2_b = [pal.dark_orange, pal.light_orange]
-// yellowRedColor <- scale_color_manual(values=c(yellow,red))
-pal2_c = [pal.light_orange, pal.dark_orange]
-// orangeLightBlueColor <- scale_color_manual(values=c(orange,light.blue))
-pal2_d = [pal.orange, pal.aqua_light]
-// YellowRedGreyColor <- scale_color_manual(values=c(yellow,red,grey))
-pal3 = [pal.light_orange, pal.dark_orange, pal.grey]
-// lightBlueYellowRedColor <- scale_color_manual(values=c(light.blue,yellow,red))
-pal4_a = [pal.aqua_light, pal.light_orange, pal.dark_orange]
-// fourColor <- scale_color_manual(values=c(red,yellow,light.blue,grey))
-pal4_b = [pal.dark_orange, pal.light_orange, pal.aqua_light, pal.grey]
-// quintileColor <-  scale_color_manual(values=c(red, orange, yellow, lighter.blue, light.blue))
-pal5_a = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_extra_light, pal.aqua_light]
-// quintileGreyColor <-  scale_color_manual(values=c(red, orange, yellow, lighter.blue, grey))
-pal5_b = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_light, pal.grey]
-// sixColor <- scale_color_manual(values=c(red, orange, yellow, lighter.blue, light.blue,grey))
-pal6 = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_light, pal.aqua, pal.grey]
-// trmelColor = scale_color_manual(values=c(red,yellow,light.blue))
-pal_trmel = [pal.dark_orange, pal.light_orange, pal.aqua_light]
+var defaultPal = [pal.dark_orange, pal.orange, pal.light_orange, pal.aqua_light, pal.aqua, pal.grey];
 
 function scaleBandInvert(scale) {
   var domain = scale.domain().reverse();
@@ -48,7 +23,7 @@ function scaleBandInvert(scale) {
   }
 }
 
-function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
+function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legend_orders){
     var chartNode = d3.select("#" + chart_id);
 
     var value_data = data.filter(function(d){return d.value != "" && d.value !== undefined})
@@ -138,29 +113,45 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
         }else{
             disaggregationSelect.attr("style","display: none;")
         }
-        selectedDisaggregation = [allDisaggregation[0]];
+        selectedDisaggregation = allDisaggregation[0];
 
       }
       
-      var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation.includes(d.disaggregation)});
+      var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
       var allYears = d3.map(filteredData, function(d){return(d.year)}).keys();
       if(chart_type == "line" || chart_type == "bar"){
         if(allYears.length > 1){
-            draw_line_chart(filteredData);
+            draw_line_chart(filteredData, selectedDisaggregation);
         }else{
-            draw_bar_chart(filteredData);
+            draw_bar_chart(filteredData, selectedDisaggregation);
         }
       }else if(chart_type == "numberline"){
-          draw_numberline_chart(data)
+          draw_numberline_chart(data, selectedDisaggregation);
       }
     }
 
-    function draw_line_chart(filteredData){
+    function draw_line_chart(filteredData, selectedDisaggregation){
       var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+      if(Object.keys(legend_orders).includes(selectedDisaggregation)){
+        var legendOrder = legend_orders[selectedDisaggregation];
+        var filteredLegend = Object.keys(legendOrder).filter(
+          function(key){return allDisaggValues.includes(key)}
+        ).reduce(
+          function(obj, key){
+            obj[key] = legendOrder[key];
+            return(obj)
+          }, {}
+        );
+        var allDisaggValues = Object.keys(filteredLegend);
+        var disaggPal = Object.values(filteredLegend);
+      }else{
+        var disaggPal = defaultPal;
+      };
+      
       filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
-        .range(d3.schemeSet2);
+        .range(disaggPal);
       var x = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return d.year; }))
         .range([ 0, width ]);
@@ -259,12 +250,27 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
         });
     }
 
-    function draw_bar_chart(filteredData){
+    function draw_bar_chart(filteredData, selectedDisaggregation){
         var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+        if(Object.keys(legend_orders).includes(selectedDisaggregation)){
+          var legendOrder = legend_orders[selectedDisaggregation];
+          var filteredLegend = Object.keys(legendOrder).filter(
+            function(key){return allDisaggValues.includes(key)}
+          ).reduce(
+            function(obj, key){
+              obj[key] = legendOrder[key];
+              return(obj)
+            }, {}
+          );
+          var allDisaggValues = Object.keys(filteredLegend);
+          var disaggPal = Object.values(filteredLegend);
+        }else{
+          var disaggPal = defaultPal;
+        };
         filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)
-          .range(d3.schemeSet2);
+          .range(disaggPal);
         var x_max = d3.max(filteredData, function(d) { return d.year; });
         var x = d3.scaleLinear()
           .domain([0, x_max*2])
@@ -342,14 +348,29 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
           .attr("rx",5);
     }
 
-    function draw_numberline_chart(filteredData){
+    function draw_numberline_chart(filteredData, selectedDisaggregation){
         var allIndicatorDisaggValues = d3.map(filteredData, function(d){return d.indicator +  ": " + d.disagg_value}).keys().sort();
         var allDisaggValues = d3.map(filteredData, function(d){return d.disagg_value}).keys().sort();
+        if(Object.keys(legend_orders).includes(selectedDisaggregation)){
+          var legendOrder = legend_orders[selectedDisaggregation];
+          var filteredLegend = Object.keys(legendOrder).filter(
+            function(key){return allDisaggValues.includes(key)}
+          ).reduce(
+            function(obj, key){
+              obj[key] = legendOrder[key];
+              return(obj)
+            }, {}
+          );
+          var allDisaggValues = Object.keys(filteredLegend);
+          var disaggPal = Object.values(filteredLegend);
+        }else{
+          var disaggPal = defaultPal;
+        };
         var allIndicatorValues = d3.map(filteredData, function(d){return d.indicator}).keys();
         filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)
-          .range(d3.schemeSet2);
+          .range(disaggPal);
         var x = d3.scaleLinear()
           .domain(d3.extent(filteredData, function(d) { return +d.value; }))
           .range([0, width])
@@ -463,7 +484,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height){
     });
     disaggregationSelect.on("change", function(d) {
         var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
-        var selectedDisaggregations = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
-        draw_chart(selectedIndicators, selectedDisaggregations)
+        var selectedDisaggregation = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
+        draw_chart(selectedIndicators, selectedDisaggregation)
     });
   }
