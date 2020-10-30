@@ -191,7 +191,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .range([ height, 0 ])
         .nice();
       var yAxis = d3.axisLeft().ticks(7).scale(y);
-      svg.append("g")
+        svg.append("g")
+        .attr('class', 'yaxis')
         .call(yAxis);
       for(var i = 0; i < allDisaggValues.length; i++){
         svg.append("path")
