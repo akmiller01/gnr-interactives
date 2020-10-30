@@ -90,7 +90,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var allDisaggregation = d3.map(data.filter(function(d){return selectedIndicator.includes(d.indicator)}), function(d){return(d.disaggregation)}).keys();
         for(var i = 0; i < allDisaggregation.length; i++){
             theDisaggregation = allDisaggregation[i]
-            if(currentDisaggregation != "" && currentDisaggregation !== null){
+            if(allDisaggregation.includes(currentDisaggregation)){
               if(theDisaggregation == currentDisaggregation){
                 disaggregationSelect
                 .append("input")
