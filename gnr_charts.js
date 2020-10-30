@@ -63,6 +63,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
     var firstIndicator = [allIndicator[0]];
 
+    var currentDisaggregation = "";
     var disaggregationSelect = chartNode
       .append("div");
 
@@ -81,27 +82,50 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
     function draw_chart(selectedIndicator, selectedDisaggregation){
       clean_up();
+      if(selectedDisaggregation !== null){
+        currentDisaggregation = selectedDisaggregation;
+      }
       if(selectedDisaggregation === null){
         disaggregationSelect.selectAll("*").remove()
         var allDisaggregation = d3.map(data.filter(function(d){return selectedIndicator.includes(d.indicator)}), function(d){return(d.disaggregation)}).keys();
         for(var i = 0; i < allDisaggregation.length; i++){
             theDisaggregation = allDisaggregation[i]
-            if(i == 0){
-            disaggregationSelect
-            .append("input")
-            .attr("value", theDisaggregation)
-            .attr("id", theDisaggregation+"_"+chart_id+"_disagg")
-            .attr("type", "radio")
-            .attr("name", chart_id+"_disagg_radio")
-            .attr("checked", true);
-            }else{
+            if(currentDisaggregation != "" && currentDisaggregation !== null){
+              if(theDisaggregation == currentDisaggregation){
                 disaggregationSelect
                 .append("input")
                 .attr("value", theDisaggregation)
                 .attr("id", theDisaggregation+"_"+chart_id+"_disagg")
                 .attr("type", "radio")
-                .attr("name", chart_id+"_disagg_radio");
+                .attr("name", chart_id+"_disagg_radio")
+                .attr("checked", true);
+                }else{
+                    disaggregationSelect
+                    .append("input")
+                    .attr("value", theDisaggregation)
+                    .attr("id", theDisaggregation+"_"+chart_id+"_disagg")
+                    .attr("type", "radio")
+                    .attr("name", chart_id+"_disagg_radio");
+                }
+            }else{
+              if(i == 0){
+                disaggregationSelect
+                .append("input")
+                .attr("value", theDisaggregation)
+                .attr("id", theDisaggregation+"_"+chart_id+"_disagg")
+                .attr("type", "radio")
+                .attr("name", chart_id+"_disagg_radio")
+                .attr("checked", true);
+                }else{
+                    disaggregationSelect
+                    .append("input")
+                    .attr("value", theDisaggregation)
+                    .attr("id", theDisaggregation+"_"+chart_id+"_disagg")
+                    .attr("type", "radio")
+                    .attr("name", chart_id+"_disagg_radio");
+                }
             }
+            
             
             disaggregationSelect
             .append('label')
@@ -113,8 +137,11 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         }else{
             disaggregationSelect.attr("style","display: none;")
         }
-        selectedDisaggregation = allDisaggregation[0];
-
+        if(allDisaggregation.includes(currentDisaggregation)){
+          selectedDisaggregation = currentDisaggregation;
+        }else{
+          selectedDisaggregation = allDisaggregation[0];
+        }
       }
       
       var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
