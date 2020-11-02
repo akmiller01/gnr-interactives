@@ -5,11 +5,40 @@
     <script src="gnr_charts.js"></script>
     <style>
       @font-face {
-      font-family: Averta-Regular;
-      src: url('https://github.com/akmiller01/gnr-interactives/tree/dean/fonts/Averta-Regular.woff') format('woff');
-      }   
-      .xaxis {font-size:10px; font-weight: bolder; stroke:#475C6D; color:#475C6D; font-family: 'Averta-Regular',Averta,sans-serif; }
-      .yaxis {font-size:10px; font-weight: lighter; stroke:#475C6D; font-family: 'Averta-Regular',Averta,sans-serif; }
+        font-family: 'Averta';
+        src: url('fonts/Averta-Regular.woff');
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: 'Averta';
+        src: url('fonts/Averta-Bold.woff');
+        font-weight: bold;
+      }
+      @font-face {
+        font-family: 'Averta';
+        src: url('fonts/Averta-BoldItalic.woff');
+        font-weight: bold;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: 'Averta';
+        src: url('fonts/Averta-RegularItalic.woff');
+        font-weight: normal;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: 'Averta';
+        src: url('fonts/Averta-Semibold.woff');
+        font-weight:600;
+      }
+      @font-face {
+        font-family: 'Averta';
+        src: url('fonts/Averta-SemiboldItalic.woff');
+        font-weight:600;
+        font-style: italic;
+      }
+      .xaxis text {font-size:10px; font-weight: 600; fill:#475C6D; font-family: 'Averta',sans-serif; }
+      .yaxis text {font-size:10px; font-weight: 100; fill:#475C6D; font-family: 'Averta',sans-serif; }
       .tooltip {pointer-events: none;}
       .tooltip-bg {pointer-events: none;}
       .chart-wrapper-third {float:left; width: 33%;}
