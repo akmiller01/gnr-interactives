@@ -216,7 +216,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .append("text")
           .attr("x", width + 25)
           .attr("y", i*15 + 4)
-          .style("fill", "#443e42")
+          .style("fill", "#475C6D")
           .text(function(d){ return allDisaggValues[i] })
           .attr("text-anchor", "left")
           .style("font-size", "10px");
@@ -229,7 +229,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12);
+        .attr("font-size",12)
+        .style("fill", "#475C6D");
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")
         .attr("fill","black")
@@ -249,6 +250,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var closest_value_distance = d3.min(filtered_data_by_year, function(d){ return Math.abs(y_pos - d.value)});
           var closest_value = filtered_data_by_year.filter(function(d){return Math.abs(y_pos - d.value) == closest_value_distance})[0].value;
           var highlight_data = filtered_data_by_year.filter(function(d){ return d.value == closest_value});
+          if(Math.abs(closest_value_distance) < 0.5 && Math.abs(closest_year_distance) < 0.5){
           tooltip
           .attr("x",mouse_position[0] + 5)
           .attr("y",mouse_position[1])
@@ -268,6 +270,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("cy", function(d){return y(d.value)})
             .attr("fill", function(d){return colorScale(d.disagg_value) })
             .attr("style","opacity:1;");
+          }
         })
         .on('mouseout', function(){
           tooltip
