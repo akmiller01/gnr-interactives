@@ -185,6 +185,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d"));
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
+        .attr('class', 'xaxis')
         .call(xAxis);
       var y = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return +d.value; }))
