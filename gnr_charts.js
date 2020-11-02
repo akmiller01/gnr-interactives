@@ -270,6 +270,13 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("cy", function(d){return y(d.value)})
             .attr("fill", function(d){return colorScale(d.disagg_value) })
             .attr("style","opacity:1;");
+          } else {
+            tooltip
+            .text("");
+          tooltipBackground
+            .attr("style","opacity:0;");
+          highlight
+            .attr("style","opacity:0;");
           }
         })
         .on('mouseout', function(){
