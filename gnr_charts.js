@@ -286,13 +286,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var mouse_position = d3.mouse(this);
           var x_pos = x.invert(mouse_position[0]);
           var y_pos = y.invert(mouse_position[1]);
+          var tooltip_threshold_y = (d3.max(filteredData,function(d){return d.value})-d3.min(filteredData,function(d){return d.value})) * 0.1
           var closest_year_distance = d3.min(filteredData, function(d){ return Math.abs(x_pos - d.year)});
           var closest_year = filteredData.filter(function(d){return Math.abs(x_pos - d.year) == closest_year_distance})[0].year;
           var filtered_data_by_year = filteredData.filter(function(d){ return d.year == closest_year });
           var closest_value_distance = d3.min(filtered_data_by_year, function(d){ return Math.abs(y_pos - d.value)});
           var closest_value = filtered_data_by_year.filter(function(d){return Math.abs(y_pos - d.value) == closest_value_distance})[0].value;
           var highlight_data = filtered_data_by_year.filter(function(d){ return d.value == closest_value});
-          if(Math.abs(closest_value_distance) < 0.5 && Math.abs(closest_year_distance) < 0.5){
+          if(Math.abs(closest_value_distance) < tooltip_threshold_y && Math.abs(closest_year_distance) < 0.5){
           tooltip
           .attr("x",mouse_position[0] + 5)
           .attr("y",mouse_position[1])
