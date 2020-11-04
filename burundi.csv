@@ -1,0 +1,1184 @@
+disagg_value,year,value,indicator,disaggregation
+Female,2000,3.78017632391605,Adult Obesity,Gender
+Female,2001,3.98826311427109,Adult Obesity,Gender
+Female,2002,4.20723874023997,Adult Obesity,Gender
+Female,2003,4.43779336571326,Adult Obesity,Gender
+Female,2004,4.67935398579351,Adult Obesity,Gender
+Female,2005,4.93220045919452,Adult Obesity,Gender
+Female,2006,5.19700730525976,Adult Obesity,Gender
+Female,2007,5.47448790163704,Adult Obesity,Gender
+Female,2008,5.76470053587169,Adult Obesity,Gender
+Female,2009,6.06703582562608,Adult Obesity,Gender
+Female,2010,6.38324405145117,Adult Obesity,Gender
+Female,2011,6.7142828662403,Adult Obesity,Gender
+Female,2012,7.06112267654651,Adult Obesity,Gender
+Female,2013,7.42317830879203,Adult Obesity,Gender
+Female,2014,7.8014053848065,Adult Obesity,Gender
+Female,2015,8.19594925808433,Adult Obesity,Gender
+Female,2016,8.60712928676906,Adult Obesity,Gender
+Female,2000,19.5146925629965,Adult Overweight,Gender
+Female,2001,20.0741832503266,Adult Overweight,Gender
+Female,2002,20.6496597350335,Adult Overweight,Gender
+Female,2003,21.2393247882466,Adult Overweight,Gender
+Female,2004,21.8422719317908,Adult Overweight,Gender
+Female,2005,22.4587376676197,Adult Overweight,Gender
+Female,2006,23.0890400421706,Adult Overweight,Gender
+Female,2007,23.7317534163197,Adult Overweight,Gender
+Female,2008,24.3865086947831,Adult Overweight,Gender
+Female,2009,25.0542324794031,Adult Overweight,Gender
+Female,2010,25.7337098812353,Adult Overweight,Gender
+Female,2011,26.4281825675951,Adult Overweight,Gender
+Female,2012,27.1359392500107,Adult Overweight,Gender
+Female,2013,27.8571729363738,Adult Overweight,Gender
+Female,2014,28.5902975551125,Adult Overweight,Gender
+Female,2015,29.3333311112119,Adult Overweight,Gender
+Female,2016,30.0853684772545,Adult Overweight,Gender
+Male,2000,9.81040909679879,Adult Overweight,Gender
+Male,2001,10.0250333650035,Adult Overweight,Gender
+Male,2002,10.244235530224,Adult Overweight,Gender
+Male,2003,10.4689100992074,Adult Overweight,Gender
+Male,2004,10.6985110849469,Adult Overweight,Gender
+Male,2005,10.9312012018561,Adult Overweight,Gender
+Male,2006,11.1680101117997,Adult Overweight,Gender
+Male,2007,11.4101325333862,Adult Overweight,Gender
+Male,2008,11.6578007363448,Adult Overweight,Gender
+Male,2009,11.9109509687954,Adult Overweight,Gender
+Male,2010,12.1691503663542,Adult Overweight,Gender
+Male,2011,12.4364512207109,Adult Overweight,Gender
+Male,2012,12.7130440630434,Adult Overweight,Gender
+Male,2013,12.9986152913356,Adult Overweight,Gender
+Male,2014,13.2960962627169,Adult Overweight,Gender
+Male,2015,13.6039596415546,Adult Overweight,Gender
+Male,2016,13.9234568930627,Adult Overweight,Gender
+Male,2000,0.837210887741867,Adult Obesity,Gender
+Male,2001,0.887182789126056,Adult Obesity,Gender
+Male,2002,0.940057659151205,Adult Obesity,Gender
+Male,2003,0.995972699406298,Adult Obesity,Gender
+Male,2004,1.0551117334481,Adult Obesity,Gender
+Male,2005,1.11739642643758,Adult Obesity,Gender
+Male,2006,1.18284272758288,Adult Obesity,Gender
+Male,2007,1.25177578948232,Adult Obesity,Gender
+Male,2008,1.32472914352742,Adult Obesity,Gender
+Male,2009,1.40190757967507,Adult Obesity,Gender
+Male,2010,1.48338230503024,Adult Obesity,Gender
+Male,2011,1.57032285934362,Adult Obesity,Gender
+Male,2012,1.66306066342371,Adult Obesity,Gender
+Male,2013,1.76201541166791,Adult Obesity,Gender
+Male,2014,1.86784685355744,Adult Obesity,Gender
+Male,2015,1.98120997291397,Adult Obesity,Gender
+Male,2016,2.10245895900334,Adult Obesity,Gender
+National,2016,0.0122057845304151,Polyunsaturated Fat,Location
+National,2016,33.724546658975,Fruit,Location
+National,2016,0.276544236564384,Nuts And Seeds,Location
+National,2016,0.216635563487266,Calcium,Location
+National,2016,0.00322871867164116,Omega 3,Location
+National,2016,45.275538537409,Legumes,Location
+National,2016,36.9429370220851,Vegetables,Location
+National,2016,25.2260478252164,Whole Grain,Location
+National,2016,0.00224188274703529,Trans Fat,Location
+National,2016,0.0487941831510375,Saturated Fat,Location
+National,2016,0.339451729956146,Processed Meat,Location
+National,2016,5.6236867662265,Red Meat,Location
+National,2016,96.9715072900391,Sugar-Sweetened Beverages,Location
+National,2016,2.58842495698444,Salt,Location
+National,2016,12.6697964730974,Milk,Location
+Regional,2016,0.853326216942275,Processed Meat,Location
+Regional,2016,10.1745379180483,Red Meat,Location
+Regional,2016,0.0624798986452582,Saturated Fat,Location
+Regional,2016,3.10182598578232,Salt,Location
+Regional,2016,88.371341746559,Sugar-Sweetened Beverages,Location
+Regional,2016,0.00390646211309018,Trans Fat,Location
+Regional,2016,0.310077648838417,Calcium,Location
+Regional,2016,89.4168626233059,Fruit,Location
+Regional,2016,64.6750036765115,Legumes,Location
+Regional,2016,28.0062822866722,Milk,Location
+Regional,2016,2.35561322594058,Nuts And Seeds,Location
+Regional,2016,0.0326964925315567,Polyunsaturated Fat,Location
+Regional,2016,0.027303468946715,Omega 3,Location
+Regional,2016,129.819028508179,Vegetables,Location
+Regional,2016,31.0991174088972,Whole Grain,Location
+Global,2016,3.26213872899093,Processed Meat,Location
+Global,2016,26.6287633574427,Red Meat,Location
+Global,2016,0.0738021075332404,Saturated Fat,Location
+Global,2016,4.65841991618336,Salt,Location
+Global,2016,94.7014156993954,Sugar-Sweetened Beverages,Location
+Global,2016,0.00498857870204281,Trans Fat,Location
+Global,2016,0.456531063588397,Calcium,Location
+Global,2016,104.199267981657,Fruit,Location
+Global,2016,44.6316590969101,Legumes,Location
+Global,2016,59.7316183709202,Milk,Location
+Global,2016,2.65949293226421,Nuts And Seeds,Location
+Global,2016,0.0495741374119373,Polyunsaturated Fat,Location
+Global,2016,0.10006628996504,Omega 3,Location
+Global,2016,196.167528922841,Vegetables,Location
+Global,2016,56.0974453240281,Whole Grain,Location
+Male,2000,2.5387924,Adult Diabetes,Gender
+Male,2001,2.6450587,Adult Diabetes,Gender
+Male,2002,2.7546788,Adult Diabetes,Gender
+Male,2003,2.8655257,Adult Diabetes,Gender
+Male,2004,2.9777848,Adult Diabetes,Gender
+Male,2005,3.0902758,Adult Diabetes,Gender
+Male,2006,3.2045818,Adult Diabetes,Gender
+Male,2007,3.3215648,Adult Diabetes,Gender
+Male,2008,3.4401527,Adult Diabetes,Gender
+Male,2009,3.559929,Adult Diabetes,Gender
+Male,2010,3.6813378,Adult Diabetes,Gender
+Male,2011,3.8085237,Adult Diabetes,Gender
+Male,2012,3.9425278,Adult Diabetes,Gender
+Male,2013,4.0863083,Adult Diabetes,Gender
+Male,2014,4.2383366,Adult Diabetes,Gender
+Female,2000,2.776076,Adult Diabetes,Gender
+Female,2001,2.857832,Adult Diabetes,Gender
+Female,2002,2.9420047,Adult Diabetes,Gender
+Female,2003,3.0258518,Adult Diabetes,Gender
+Female,2004,3.1111867,Adult Diabetes,Gender
+Female,2005,3.1958098,Adult Diabetes,Gender
+Female,2006,3.2823035,Adult Diabetes,Gender
+Female,2007,3.3697998,Adult Diabetes,Gender
+Female,2008,3.4599632,Adult Diabetes,Gender
+Female,2009,3.5527969,Adult Diabetes,Gender
+Female,2010,3.6496286,Adult Diabetes,Gender
+Female,2011,3.7513475,Adult Diabetes,Gender
+Female,2012,3.8584825,Adult Diabetes,Gender
+Female,2013,3.9718943,Adult Diabetes,Gender
+Female,2014,4.0934194,Adult Diabetes,Gender
+Male,2000,24.1452376,Adult Blood Pressure,Gender
+Male,2001,24.3452701,Adult Blood Pressure,Gender
+Male,2002,24.5457752,Adult Blood Pressure,Gender
+Male,2003,24.7481897,Adult Blood Pressure,Gender
+Male,2004,24.9507476,Adult Blood Pressure,Gender
+Male,2005,25.1508407,Adult Blood Pressure,Gender
+Male,2006,25.3562807,Adult Blood Pressure,Gender
+Male,2007,25.5659173,Adult Blood Pressure,Gender
+Male,2008,25.7786489,Adult Blood Pressure,Gender
+Male,2009,25.9899428,Adult Blood Pressure,Gender
+Male,2010,26.2007107,Adult Blood Pressure,Gender
+Male,2011,26.4141194,Adult Blood Pressure,Gender
+Male,2012,26.6254308,Adult Blood Pressure,Gender
+Male,2013,26.8366803,Adult Blood Pressure,Gender
+Male,2014,27.0479556,Adult Blood Pressure,Gender
+Male,2015,27.2594299,Adult Blood Pressure,Gender
+Female,2000,27.2848922,Adult Blood Pressure,Gender
+Female,2001,27.5283787,Adult Blood Pressure,Gender
+Female,2002,27.769429,Adult Blood Pressure,Gender
+Female,2003,28.0049651,Adult Blood Pressure,Gender
+Female,2004,28.2385741,Adult Blood Pressure,Gender
+Female,2005,28.4751061,Adult Blood Pressure,Gender
+Female,2006,28.716293,Adult Blood Pressure,Gender
+Female,2007,28.9650681,Adult Blood Pressure,Gender
+Female,2008,29.2251901,Adult Blood Pressure,Gender
+Female,2009,29.4934219,Adult Blood Pressure,Gender
+Female,2010,29.769176,Adult Blood Pressure,Gender
+Female,2011,30.0510681,Adult Blood Pressure,Gender
+Female,2012,30.3257373,Adult Blood Pressure,Gender
+Female,2013,30.597815,Adult Blood Pressure,Gender
+Female,2014,30.8641957,Adult Blood Pressure,Gender
+Female,2015,31.1272163,Adult Blood Pressure,Gender
+,2019,2018.697,U5 Pop,All
+,2019,266.598,65 Years,All
+Urban,2016,99.5,Iodised Salt,Location
+Rural,2016,99.1,Iodised Salt,Location
+Lowest,2016,98.8,Iodised Salt,Income
+Highest,2016,99.3,Iodised Salt,Income
+Total,2016,99.2,Iodised Salt,Overall
+Male,2016,16.3,Diarrhea Zinc,Sex
+Female,2016,13.5,Diarrhea Zinc,Sex
+Urban,2016,6.5,Diarrhea Zinc,Location
+Rural,2016,15.7,Diarrhea Zinc,Location
+Primary,2016,17,Diarrhea Zinc,Education
+Secondary,2016,7.4,Diarrhea Zinc,Education
+Lowest,2016,15.9,Diarrhea Zinc,Income
+Highest,2016,11,Diarrhea Zinc,Income
+Total,2016,15,Diarrhea Zinc,Overall
+Male,2016,8.2,Iron Supp,Sex
+Female,2016,7.5,Iron Supp,Sex
+Urban,2016,4.7,Iron Supp,Location
+Rural,2016,8.2,Iron Supp,Location
+Primary,2016,7.4,Iron Supp,Education
+Secondary,2016,5.1,Iron Supp,Education
+Lowest,2016,9,Iron Supp,Income
+Highest,2016,5.3,Iron Supp,Income
+Total,2016,7.9,Iron Supp,Overall
+Male,2016,68.3,Vit A,Sex
+Female,2016,69.2,Vit A,Sex
+Urban,2016,72.2,Vit A,Location
+Rural,2016,68.4,Vit A,Location
+Primary,2016,69.7,Vit A,Education
+Secondary,2016,72.6,Vit A,Education
+Lowest,2016,67.9,Vit A,Income
+Highest,2016,71.3,Vit A,Income
+Total,2016,68.7,Vit A,Overall
+Under 20,2016,37.6,Iron And Folic,Mothers Age
+20-34,2016,47,Iron And Folic,Mothers Age
+35-49,2016,53.4,Iron And Folic,Mothers Age
+Urban,2016,58.8,Iron And Folic,Location
+Rural,2016,47,Iron And Folic,Location
+Primary,2016,,Iron And Folic,Education
+Secondary,2016,53,Iron And Folic,Education
+Lowest,2016,46.2,Iron And Folic,Income
+Highest,2016,59.8,Iron And Folic,Income
+Total,2016,47.6,Iron And Folic,Overall
+,2010,11,Early Childbearing Prev,All
+,2017,0.471,Gender Inequality,All
+,2017,114,Gender Inequality Rank,All
+,2001,,Undernourishment Prev,All
+,2005,,Undernourishment Prev,All
+,2009,,Undernourishment Prev,All
+,2013,,Undernourishment Prev,All
+,2017,,Undernourishment Prev,All
+Boys,2000,38.6679793905345,Adolescent Underweight,Gender
+Boys,2001,38.2411595042756,Adolescent Underweight,Gender
+Boys,2002,37.8122102844254,Adolescent Underweight,Gender
+Boys,2003,37.3839028740347,Adolescent Underweight,Gender
+Boys,2004,36.9516416604641,Adolescent Underweight,Gender
+Boys,2005,36.5137456228104,Adolescent Underweight,Gender
+Boys,2006,36.0753194985787,Adolescent Underweight,Gender
+Boys,2007,35.6354610499593,Adolescent Underweight,Gender
+Boys,2008,35.1936122652713,Adolescent Underweight,Gender
+Boys,2009,34.7490269127703,Adolescent Underweight,Gender
+Boys,2010,34.3026747212081,Adolescent Underweight,Gender
+Boys,2011,33.855215221146,Adolescent Underweight,Gender
+Boys,2012,33.4055467007484,Adolescent Underweight,Gender
+Boys,2013,32.9574340368284,Adolescent Underweight,Gender
+Boys,2014,32.5103628010317,Adolescent Underweight,Gender
+Boys,2015,32.0701968003786,Adolescent Underweight,Gender
+Boys,2016,31.6340674115125,Adolescent Underweight,Gender
+Girls,2000,24.3482155257906,Adolescent Underweight,Gender
+Girls,2001,23.9930328858549,Adolescent Underweight,Gender
+Girls,2002,23.63825284007,Adolescent Underweight,Gender
+Girls,2003,23.2830327096251,Adolescent Underweight,Gender
+Girls,2004,22.9317584349051,Adolescent Underweight,Gender
+Girls,2005,22.5805411190356,Adolescent Underweight,Gender
+Girls,2006,22.2282760420583,Adolescent Underweight,Gender
+Girls,2007,21.8783824415568,Adolescent Underweight,Gender
+Girls,2008,21.5335300373581,Adolescent Underweight,Gender
+Girls,2009,21.1928506512964,Adolescent Underweight,Gender
+Girls,2010,20.8558343089895,Adolescent Underweight,Gender
+Girls,2011,20.5245907358987,Adolescent Underweight,Gender
+Girls,2012,20.1962512442271,Adolescent Underweight,Gender
+Girls,2013,19.8713538402889,Adolescent Underweight,Gender
+Girls,2014,19.5507808614018,Adolescent Underweight,Gender
+Girls,2015,19.2361914807236,Adolescent Underweight,Gender
+Girls,2016,18.9281874191013,Adolescent Underweight,Gender
+Boys,2000,1.87928165798809,Adolescent Overweight,Gender
+Boys,2001,2.0385870500876,Adolescent Overweight,Gender
+Boys,2002,2.20821834484325,Adolescent Overweight,Gender
+Boys,2003,2.3892188504509,Adolescent Overweight,Gender
+Boys,2004,2.58196455205338,Adolescent Overweight,Gender
+Boys,2005,2.78655186850611,Adolescent Overweight,Gender
+Boys,2006,3.00390419530991,Adolescent Overweight,Gender
+Boys,2007,3.23509206637755,Adolescent Overweight,Gender
+Boys,2008,3.48033545753253,Adolescent Overweight,Gender
+Boys,2009,3.74159459614559,Adolescent Overweight,Gender
+Boys,2010,4.01922412314516,Adolescent Overweight,Gender
+Boys,2011,4.31665636560214,Adolescent Overweight,Gender
+Boys,2012,4.63593196051914,Adolescent Overweight,Gender
+Boys,2013,4.97964553315914,Adolescent Overweight,Gender
+Boys,2014,5.34833876532734,Adolescent Overweight,Gender
+Boys,2015,5.74415303511885,Adolescent Overweight,Gender
+Boys,2016,6.17023677662871,Adolescent Overweight,Gender
+Girls,2000,6.00798906373677,Adolescent Overweight,Gender
+Girls,2001,6.38638033632931,Adolescent Overweight,Gender
+Girls,2002,6.78136946080573,Adolescent Overweight,Gender
+Girls,2003,7.19217950883436,Adolescent Overweight,Gender
+Girls,2004,7.61788192445107,Adolescent Overweight,Gender
+Girls,2005,8.05954250509792,Adolescent Overweight,Gender
+Girls,2006,8.51888334496389,Adolescent Overweight,Gender
+Girls,2007,8.99437307344451,Adolescent Overweight,Gender
+Girls,2008,9.48746607514255,Adolescent Overweight,Gender
+Girls,2009,9.99799206186066,Adolescent Overweight,Gender
+Girls,2010,10.5280414110099,Adolescent Overweight,Gender
+Girls,2011,11.0792479566224,Adolescent Overweight,Gender
+Girls,2012,11.6531695393859,Adolescent Overweight,Gender
+Girls,2013,12.2508575461768,Adolescent Overweight,Gender
+Girls,2014,12.8720800017835,Adolescent Overweight,Gender
+Girls,2015,13.5188404757802,Adolescent Overweight,Gender
+Girls,2016,14.1899253827993,Adolescent Overweight,Gender
+Boys,2000,0.163167652026262,Adolescent Obesity,Gender
+Boys,2001,0.1855935347679,Adolescent Obesity,Gender
+Boys,2002,0.210848283694173,Adolescent Obesity,Gender
+Boys,2003,0.239344799185451,Adolescent Obesity,Gender
+Boys,2004,0.271364565160068,Adolescent Obesity,Gender
+Boys,2005,0.307366582149977,Adolescent Obesity,Gender
+Boys,2006,0.347762307274654,Adolescent Obesity,Gender
+Boys,2007,0.392931416469435,Adolescent Obesity,Gender
+Boys,2008,0.443319951148812,Adolescent Obesity,Gender
+Boys,2009,0.499568127883005,Adolescent Obesity,Gender
+Boys,2010,0.562301679065769,Adolescent Obesity,Gender
+Boys,2011,0.632484976626813,Adolescent Obesity,Gender
+Boys,2012,0.711321168995374,Adolescent Obesity,Gender
+Boys,2013,0.800576799124842,Adolescent Obesity,Gender
+Boys,2014,0.901414239220692,Adolescent Obesity,Gender
+Boys,2015,1.01505701804653,Adolescent Obesity,Gender
+Boys,2016,1.14376885041671,Adolescent Obesity,Gender
+Girls,2000,0.439901737741271,Adolescent Obesity,Gender
+Girls,2001,0.495713783174185,Adolescent Obesity,Gender
+Girls,2002,0.557546022218273,Adolescent Obesity,Gender
+Girls,2003,0.625934293124255,Adolescent Obesity,Gender
+Girls,2004,0.701470288563191,Adolescent Obesity,Gender
+Girls,2005,0.784120061599121,Adolescent Obesity,Gender
+Girls,2006,0.874521608913604,Adolescent Obesity,Gender
+Girls,2007,0.973323457532005,Adolescent Obesity,Gender
+Girls,2008,1.08123833542235,Adolescent Obesity,Gender
+Girls,2009,1.19824811464943,Adolescent Obesity,Gender
+Girls,2010,1.32585294041694,Adolescent Obesity,Gender
+Girls,2011,1.46550188680189,Adolescent Obesity,Gender
+Girls,2012,1.61770996014028,Adolescent Obesity,Gender
+Girls,2013,1.78386655824277,Adolescent Obesity,Gender
+Girls,2014,1.96509639710231,Adolescent Obesity,Gender
+Girls,2015,2.16282059504624,Adolescent Obesity,Gender
+Girls,2016,2.37899085334239,Adolescent Obesity,Gender
+All women,2000,41.3,Adult Anemia,Pregnancy
+All women,2001,39.7,Adult Anemia,Pregnancy
+All women,2002,38.1,Adult Anemia,Pregnancy
+All women,2003,36.6,Adult Anemia,Pregnancy
+All women,2004,35,Adult Anemia,Pregnancy
+All women,2005,33.4,Adult Anemia,Pregnancy
+All women,2006,31.8,Adult Anemia,Pregnancy
+All women,2007,30.2,Adult Anemia,Pregnancy
+All women,2008,28.7,Adult Anemia,Pregnancy
+All women,2009,27.4,Adult Anemia,Pregnancy
+All women,2010,26.5,Adult Anemia,Pregnancy
+All women,2011,25.9,Adult Anemia,Pregnancy
+All women,2012,25.6,Adult Anemia,Pregnancy
+All women,2013,25.6,Adult Anemia,Pregnancy
+All women,2014,25.7,Adult Anemia,Pregnancy
+All women,2015,26.2,Adult Anemia,Pregnancy
+All women,2016,26.7,Adult Anemia,Pregnancy
+All women,2017,,Adult Anemia,Pregnancy
+All women,2018,,Adult Anemia,Pregnancy
+Male,2017,2.080198035,Adult Sodium,Gender
+Female,2017,3.033737652,Adult Sodium,Gender
+Both,2017,2.544800288,Adult Sodium,Overall
+Male,2010,2.34944490902017,Adult Sodium,Gender
+Female,2010,3.01780083234366,Adult Sodium,Gender
+Both,2010,2.68045585837681,Adult Sodium,Overall
+,2005,79.70452,190 Percent,All
+,2010,74.90648,190 Percent,All
+,2015,74.8696,190 Percent,All
+,2018,78.18653,190 Percent,All
+,2005,93.52268,320 Percent,All
+,2010,91.06884,320 Percent,All
+,2015,90.66188,320 Percent,All
+,2018,92.26947,320 Percent,All
+Tax revenue,2015,0.368691001693719,Government Revenue,
+Non Tax revenue,2015,0.0409660352228749,Government Revenue,
+Tax revenue,2016,0.353112961529214,Government Revenue,
+Non Tax revenue,2016,0.0348785881977664,Government Revenue,
+Tax revenue,2017,0.346160170854412,Government Revenue,
+Non Tax revenue,2017,0.0341918291455881,Government Revenue,
+Tax revenue,2018,0.340485307553467,Government Revenue,
+Non Tax revenue,2018,0.0336312968465326,Government Revenue,
+Tax revenue,2019,0.338803650619461,Government Revenue,
+Non Tax revenue,2019,0.0334651918714076,Government Revenue,
+Tax revenue,2020,0.337373837048039,Government Revenue,
+Non Tax revenue,2020,0.0333239626213081,Government Revenue,
+Tax revenue,2021,0.339060706233279,Government Revenue,
+Non Tax revenue,2021,0.0334905824344146,Government Revenue,
+Tax revenue,2022,0.340756009764446,Government Revenue,
+Non Tax revenue,2022,0.0336580353465867,Government Revenue,
+Tax revenue,2023,0.342459789813268,Government Revenue,
+Non Tax revenue,2023,0.0338263255233196,Government Revenue,
+Tax revenue,2024,0.352328270356489,Government Revenue,
+Non Tax revenue,2024,0.0348010806484616,Government Revenue,
+Tax revenue,2025,0.330555734063555,Government Revenue,
+Non Tax revenue,2025,0.0326505072905948,Government Revenue,
+,2000,156.413765,U5mr,All
+,2001,150.683458,U5mr,All
+,2002,144.793595,U5mr,All
+,2003,138.68779,U5mr,All
+,2004,132.157992,U5mr,All
+,2005,124.977279,U5mr,All
+,2006,117.55582,U5mr,All
+,2007,110.245899,U5mr,All
+,2008,103.261138,U5mr,All
+,2009,96.746144,U5mr,All
+,2010,90.720182,U5mr,All
+,2011,85.157831,U5mr,All
+,2012,79.977881,U5mr,All
+,2013,75.146563,U5mr,All
+,2014,70.793591,U5mr,All
+,2015,67.029887,U5mr,All
+,2016,63.807951,U5mr,All
+,2017,60.97722,U5mr,All
+,2018,58.456862,U5mr,All
+,2000,,Female Secondary Enroll Net,All
+,2001,,Female Secondary Enroll Net,All
+,2002,,Female Secondary Enroll Net,All
+,2003,,Female Secondary Enroll Net,All
+,2004,,Female Secondary Enroll Net,All
+,2005,,Female Secondary Enroll Net,All
+,2006,,Female Secondary Enroll Net,All
+,2007,,Female Secondary Enroll Net,All
+,2008,,Female Secondary Enroll Net,All
+,2009,11.8857002258301,Female Secondary Enroll Net,All
+,2010,13.7017002105713,Female Secondary Enroll Net,All
+,2011,15.425950050354,Female Secondary Enroll Net,All
+,2012,17.4029502868652,Female Secondary Enroll Net,All
+,2013,21.0114707946777,Female Secondary Enroll Net,All
+,2014,26.1962394714355,Female Secondary Enroll Net,All
+,2015,30.0907192230225,Female Secondary Enroll Net,All
+,2016,34.0804214477539,Female Secondary Enroll Net,All
+,2017,31.6692905426025,Female Secondary Enroll Net,All
+,2018,,Female Secondary Enroll Net,All
+Pregnant women,2000,50.2,Adult Anemia,Pregnancy
+Pregnant women,2001,49.1,Adult Anemia,Pregnancy
+Pregnant women,2002,47.9,Adult Anemia,Pregnancy
+Pregnant women,2003,46.6,Adult Anemia,Pregnancy
+Pregnant women,2004,45.2,Adult Anemia,Pregnancy
+Pregnant women,2005,43.6,Adult Anemia,Pregnancy
+Pregnant women,2006,41.9,Adult Anemia,Pregnancy
+Pregnant women,2007,40.1,Adult Anemia,Pregnancy
+Pregnant women,2008,38.4,Adult Anemia,Pregnancy
+Pregnant women,2009,36.7,Adult Anemia,Pregnancy
+Pregnant women,2010,35.3,Adult Anemia,Pregnancy
+Pregnant women,2011,34.1,Adult Anemia,Pregnancy
+Pregnant women,2012,33.2,Adult Anemia,Pregnancy
+Pregnant women,2013,32.4,Adult Anemia,Pregnancy
+Pregnant women,2014,31.7,Adult Anemia,Pregnancy
+Pregnant women,2015,31.2,Adult Anemia,Pregnancy
+Pregnant women,2016,30.9,Adult Anemia,Pregnancy
+Pregnant women,2017,,Adult Anemia,Pregnancy
+Pregnant women,2018,,Adult Anemia,Pregnancy
+Non-pregnant women,2000,40,Adult Anemia,Pregnancy
+Non-pregnant women,2001,38.4,Adult Anemia,Pregnancy
+Non-pregnant women,2002,36.7,Adult Anemia,Pregnancy
+Non-pregnant women,2003,35.2,Adult Anemia,Pregnancy
+Non-pregnant women,2004,33.6,Adult Anemia,Pregnancy
+Non-pregnant women,2005,32,Adult Anemia,Pregnancy
+Non-pregnant women,2006,30.4,Adult Anemia,Pregnancy
+Non-pregnant women,2007,28.9,Adult Anemia,Pregnancy
+Non-pregnant women,2008,27.4,Adult Anemia,Pregnancy
+Non-pregnant women,2009,26.2,Adult Anemia,Pregnancy
+Non-pregnant women,2010,25.3,Adult Anemia,Pregnancy
+Non-pregnant women,2011,24.8,Adult Anemia,Pregnancy
+Non-pregnant women,2012,24.6,Adult Anemia,Pregnancy
+Non-pregnant women,2013,24.7,Adult Anemia,Pregnancy
+Non-pregnant women,2014,25,Adult Anemia,Pregnancy
+Non-pregnant women,2015,25.5,Adult Anemia,Pregnancy
+Non-pregnant women,2016,26.2,Adult Anemia,Pregnancy
+Non-pregnant women,2017,,Adult Anemia,Pregnancy
+Non-pregnant women,2018,,Adult Anemia,Pregnancy
+Wasting alone,2016,1.6720702,Coexistence,All
+Wasting and stunting,2016,3.4217618,Coexistence,All
+Stunting alone,2016,51.79232134,Coexistence,All
+Stunting and overweight,2016,0.73307186,Coexistence,All
+Overweight alone,2016,0.63056504,Coexistence,All
+Free from,2016,41.75020976,Coexistence,All
+Both,2000,1.5168753,Overweight Percent,Overall
+Both,2010,2.8846755,Overweight Percent,Overall
+Both,2016,1.3636369,Overweight Percent,Overall
+Boys,2000,1.79828,Overweight Percent,Gender
+Boys,2010,3.0606067,Overweight Percent,Gender
+Boys,2016,1.5208449,Overweight Percent,Gender
+Girls,2000,1.2518409,Overweight Percent,Gender
+Girls,2010,2.7008793,Overweight Percent,Gender
+Girls,2016,1.2041924,Overweight Percent,Gender
+Urban,2000,2.1390374,Overweight Percent,Location
+Urban,2010,2.6108992,Overweight Percent,Location
+Urban,2016,2.2826576,Overweight Percent,Location
+Rural,2000,1.4693878,Overweight Percent,Location
+Rural,2010,2.9096868,Overweight Percent,Location
+Rural,2016,1.2719189,Overweight Percent,Location
+Lowest,2000,2.0833335,Overweight Percent,Income
+Lowest,2010,2.2782617,Overweight Percent,Income
+Lowest,2016,0.93522239,Overweight Percent,Income
+Second lowest,2000,1.2072434,Overweight Percent,Income
+Second lowest,2010,2.3325572,Overweight Percent,Income
+Second lowest,2016,1.5037835,Overweight Percent,Income
+Middle,2000,0.59405941,Overweight Percent,Income
+Middle,2010,3.4920177,Overweight Percent,Income
+Middle,2016,1.1039109,Overweight Percent,Income
+Second highest,2000,1.8032787,Overweight Percent,Income
+Second highest,2010,3.2429721,Overweight Percent,Income
+Second highest,2016,1.6547732,Overweight Percent,Income
+Highest,2000,1.8348624,Overweight Percent,Income
+Highest,2010,3.1373599,Overweight Percent,Income
+Highest,2016,1.731108,Overweight Percent,Income
+None or primary,2000,1.3173653,Overweight Percent,Education
+None or primary,2010,2.7288101,Overweight Percent,Education
+None or primary,2016,1.3308133,Overweight Percent,Education
+Secondary or higher,2000,0,Overweight Percent,Education
+Secondary or higher,2010,4.5672989,Overweight Percent,Education
+Secondary or higher,2016,1.6894712,Overweight Percent,Education
+24-35 months,2000,1.2704175,Overweight Percent,Age
+24-35 months,2010,3.085897,Overweight Percent,Age
+24-35 months,2016,1.4352158,Overweight Percent,Age
+36-47 months,2000,2.5844929,Overweight Percent,Age
+36-47 months,2010,2.1941555,Overweight Percent,Age
+36-47 months,2016,1.4978054,Overweight Percent,Age
+48-59 months,2000,0.45977011,Overweight Percent,Age
+48-59 months,2010,1.8598529,Overweight Percent,Age
+48-59 months,2016,0.53904408,Overweight Percent,Age
+0-23 months,2000,1.536643,Overweight Percent,Age
+0-23 months,2010,3.4441619,Overweight Percent,Age
+0-23 months,2016,1.6976094,Overweight Percent,Age
+Both,2000,63.958515,Stunting Percent,Overall
+Both,2005,57.700001,Stunting Percent,Overall
+Both,2010,57.598381,Stunting Percent,Overall
+Both,2016,55.947155,Stunting Percent,Overall
+Boys,2000,66.845398,Stunting Percent,Gender
+Boys,2005,,Stunting Percent,Gender
+Boys,2010,61.813919,Stunting Percent,Gender
+Boys,2016,59.447086,Stunting Percent,Gender
+Girls,2000,61.25523,Stunting Percent,Gender
+Girls,2005,,Stunting Percent,Gender
+Girls,2010,53.170795,Stunting Percent,Gender
+Girls,2016,52.400177,Stunting Percent,Gender
+Urban,2000,38.690479,Stunting Percent,Location
+Urban,2005,,Stunting Percent,Location
+Urban,2010,37.900864,Stunting Percent,Location
+Urban,2016,27.827675,Stunting Percent,Location
+Rural,2000,65.936623,Stunting Percent,Location
+Rural,2005,,Stunting Percent,Location
+Rural,2010,59.396332,Stunting Percent,Location
+Rural,2016,58.758129,Stunting Percent,Location
+Lowest,2000,68.888893,Stunting Percent,Income
+Lowest,2005,,Stunting Percent,Income
+Lowest,2010,70.072952,Stunting Percent,Income
+Lowest,2016,69.074539,Stunting Percent,Income
+Second lowest,2000,67.294113,Stunting Percent,Income
+Second lowest,2005,,Stunting Percent,Income
+Second lowest,2010,58.809494,Stunting Percent,Income
+Second lowest,2016,63.688667,Stunting Percent,Income
+Middle,2000,66.966286,Stunting Percent,Income
+Middle,2005,,Stunting Percent,Income
+Middle,2010,59.671314,Stunting Percent,Income
+Middle,2016,60.243458,Stunting Percent,Income
+Second highest,2000,67.282806,Stunting Percent,Income
+Second highest,2005,,Stunting Percent,Income
+Second highest,2010,56.09774,Stunting Percent,Income
+Second highest,2016,49.68718,Stunting Percent,Income
+Highest,2000,50.803215,Stunting Percent,Income
+Highest,2005,,Stunting Percent,Income
+Highest,2010,41.523949,Stunting Percent,Income
+Highest,2016,31.192007,Stunting Percent,Income
+None or primary,2000,63.106113,Stunting Percent,Education
+None or primary,2005,,Stunting Percent,Education
+None or primary,2010,59.459961,Stunting Percent,Education
+None or primary,2016,58.606476,Stunting Percent,Education
+Secondary or higher,2000,25,Stunting Percent,Education
+Secondary or higher,2005,,Stunting Percent,Education
+Secondary or higher,2010,30.264297,Stunting Percent,Education
+Secondary or higher,2016,31.324306,Stunting Percent,Education
+24-35 months,2000,67.695099,Stunting Percent,Age
+24-35 months,2005,,Stunting Percent,Age
+24-35 months,2010,66.148514,Stunting Percent,Age
+24-35 months,2016,63.585419,Stunting Percent,Age
+36-47 months,2000,72.616631,Stunting Percent,Age
+36-47 months,2005,,Stunting Percent,Age
+36-47 months,2010,64.637581,Stunting Percent,Age
+36-47 months,2016,66.37043,Stunting Percent,Age
+48-59 months,2000,68.055557,Stunting Percent,Age
+48-59 months,2005,,Stunting Percent,Age
+48-59 months,2010,63.61158,Stunting Percent,Age
+48-59 months,2016,58.779675,Stunting Percent,Age
+0-23 months,2000,54.295944,Stunting Percent,Age
+0-23 months,2005,,Stunting Percent,Age
+0-23 months,2010,47.681484,Stunting Percent,Age
+0-23 months,2016,46.057587,Stunting Percent,Age
+Both,2000,9.8976116,Wasting Percent,Overall
+Both,2005,9,Wasting Percent,Overall
+Both,2010,5.9811072,Wasting Percent,Overall
+Both,2016,5.093832,Wasting Percent,Overall
+Boys,2000,10.867866,Wasting Percent,Gender
+Boys,2005,,Wasting Percent,Gender
+Boys,2010,6.3222408,Wasting Percent,Gender
+Boys,2016,5.572341,Wasting Percent,Gender
+Girls,2000,8.9837999,Wasting Percent,Gender
+Girls,2005,,Wasting Percent,Gender
+Girls,2010,5.6247234,Wasting Percent,Gender
+Girls,2016,4.6085162,Wasting Percent,Gender
+Urban,2000,7.4866309,Wasting Percent,Location
+Urban,2005,,Wasting Percent,Location
+Urban,2010,4.8740959,Wasting Percent,Location
+Urban,2016,3.0983031,Wasting Percent,Location
+Rural,2000,10.081633,Wasting Percent,Location
+Rural,2005,,Wasting Percent,Location
+Rural,2010,6.0822406,Wasting Percent,Location
+Rural,2016,5.2929854,Wasting Percent,Location
+Lowest,2000,12.708333,Wasting Percent,Income
+Lowest,2005,,Wasting Percent,Income
+Lowest,2010,7.8600807,Wasting Percent,Income
+Lowest,2016,7.4180217,Wasting Percent,Income
+Second lowest,2000,9.8591547,Wasting Percent,Income
+Second lowest,2005,,Wasting Percent,Income
+Second lowest,2010,6.0383773,Wasting Percent,Income
+Second lowest,2016,6.2140455,Wasting Percent,Income
+Middle,2000,9.7029705,Wasting Percent,Income
+Middle,2005,,Wasting Percent,Income
+Middle,2010,5.2498345,Wasting Percent,Income
+Middle,2016,4.6675711,Wasting Percent,Income
+Second highest,2000,9.0163927,Wasting Percent,Income
+Second highest,2005,,Wasting Percent,Income
+Second highest,2010,5.3343472,Wasting Percent,Income
+Second highest,2016,3.8487971,Wasting Percent,Income
+Highest,2000,8.6238537,Wasting Percent,Income
+Highest,2005,,Wasting Percent,Income
+Highest,2010,5.3529124,Wasting Percent,Income
+Highest,2016,2.6924145,Wasting Percent,Income
+None or primary,2000,10.179641,Wasting Percent,Education
+None or primary,2005,,Wasting Percent,Education
+None or primary,2010,5.9733057,Wasting Percent,Education
+None or primary,2016,5.3082848,Wasting Percent,Education
+Secondary or higher,2000,3.7500002,Wasting Percent,Education
+Secondary or higher,2005,,Wasting Percent,Education
+Secondary or higher,2010,5.964242,Wasting Percent,Education
+Secondary or higher,2016,3.4279115,Wasting Percent,Education
+24-35 months,2000,8.7114334,Wasting Percent,Age
+24-35 months,2005,,Wasting Percent,Age
+24-35 months,2010,4.6915202,Wasting Percent,Age
+24-35 months,2016,3.9188061,Wasting Percent,Age
+36-47 months,2000,7.355865,Wasting Percent,Age
+36-47 months,2005,,Wasting Percent,Age
+36-47 months,2010,2.4690785,Wasting Percent,Age
+36-47 months,2016,2.5197024,Wasting Percent,Age
+48-59 months,2000,8.5057478,Wasting Percent,Age
+48-59 months,2005,,Wasting Percent,Age
+48-59 months,2010,3.5006459,Wasting Percent,Age
+48-59 months,2016,3.5985806,Wasting Percent,Age
+0-23 months,2000,12.529551,Wasting Percent,Age
+0-23 months,2005,,Wasting Percent,Age
+0-23 months,2010,9.2479944,Wasting Percent,Age
+0-23 months,2016,7.6322937,Wasting Percent,Age
+,2018,11175378,Population,All
+,2014,772.94,Gdp Capita Ppp,All
+,2015,720.739,Gdp Capita Ppp,All
+,2016,691.114,Gdp Capita Ppp,All
+,2017,669.694,Gdp Capita Ppp,All
+,2018,651.156,Gdp Capita Ppp,All
+,2019,634.839,Gdp Capita Ppp,All
+,2000,17.353271,Lbw,All
+,2001,17.250006,Lbw,All
+,2002,17.096945,Lbw,All
+,2003,16.9533,Lbw,All
+,2004,16.803278,Lbw,All
+,2005,16.618393,Lbw,All
+,2006,16.435137,Lbw,All
+,2007,16.232533,Lbw,All
+,2008,16.056303,Lbw,All
+,2009,15.87756,Lbw,All
+,2010,15.736074,Lbw,All
+,2011,15.605659,Lbw,All
+,2012,15.483515,Lbw,All
+,2013,15.360193,Lbw,All
+,2014,15.252651,Lbw,All
+,2015,15.131362,Lbw,All
+,2013,38.6,Gini,All
+,2013,94,Gini Rank,All
+,2018,86.968,Rural Percent,All
+,2008,0.402942,Oda Received,All
+,2009,2.386828,Oda Received,All
+,2010,0.823773,Oda Received,All
+,2011,1.59287,Oda Received,All
+,2012,1.549916,Oda Received,All
+,2013,6.702474,Oda Received,All
+,2014,5.995938,Oda Received,All
+,2015,11.272054,Oda Received,All
+,2016,18.627705,Oda Received,All
+,2017,11.754169,Oda Received,All
+,2008,0.0823369226991278,Oda Received Percent,All
+,2009,0.215979619378591,Oda Received Percent,All
+,2010,0.139124702076041,Oda Received Percent,All
+,2011,0.31172254665518,Oda Received Percent,All
+,2012,0.317922771204437,Oda Received Percent,All
+,2013,1.29900516982031,Oda Received Percent,All
+,2014,1.25787964273759,Oda Received Percent,All
+,2015,2.76943063159725,Oda Received Percent,All
+,2016,2.32873829745,Oda Received Percent,All
+,2017,2.5655021290786,Oda Received Percent,All
+,2008,49.5861361326747,Oda Per 1000,All
+,2009,284.225096776867,Oda Per 1000,All
+,2010,94.9528343969675,Oda Per 1000,All
+,2011,177.807301879375,Oda Per 1000,All
+,2012,167.631193118572,Oda Per 1000,All
+,2013,702.544126283805,Oda Per 1000,All
+,2014,609.07731654175,Oda Per 1000,All
+,2015,1109.4508579207,Oda Per 1000,All
+,2016,1776.09730665471,Oda Per 1000,All
+,2017,1085.63248774548,Oda Per 1000,All
+Both,2010,8.8028154,Minimum Accept Diet,Overall
+Both,2016,10.210701,Minimum Accept Diet,Overall
+Boys,2010,8.1778564,Minimum Accept Diet,Gender
+Boys,2016,10.769796,Minimum Accept Diet,Gender
+Girls,2010,9.4172659,Minimum Accept Diet,Gender
+Girls,2016,9.6382875,Minimum Accept Diet,Gender
+Urban,2010,18.516947,Minimum Accept Diet,Location
+Urban,2016,28.457508,Minimum Accept Diet,Location
+Rural,2010,7.8637371,Minimum Accept Diet,Location
+Rural,2016,8.5288868,Minimum Accept Diet,Location
+Lowest,2010,5.1189895,Minimum Accept Diet,Income
+Lowest,2016,3.5551116,Minimum Accept Diet,Income
+Second lowest,2010,5.4794989,Minimum Accept Diet,Income
+Second lowest,2016,5.1320319,Minimum Accept Diet,Income
+Middle,2010,6.2009873,Minimum Accept Diet,Income
+Middle,2016,10.790853,Minimum Accept Diet,Income
+Second highest,2010,11.882791,Minimum Accept Diet,Income
+Second highest,2016,10.667902,Minimum Accept Diet,Income
+Highest,2010,16.475676,Minimum Accept Diet,Income
+Highest,2016,25.26519,Minimum Accept Diet,Income
+None or primary,2010,7.6130428,Minimum Accept Diet,Education
+None or primary,2016,8.3947983,Minimum Accept Diet,Education
+Secondary or higher,2010,25.938263,Minimum Accept Diet,Education
+Secondary or higher,2016,24.280039,Minimum Accept Diet,Education
+6-11 months,2010,7.3634839,Minimum Accept Diet,Age
+6-11 months,2016,8.3875904,Minimum Accept Diet,Age
+12-15 months,2010,7.3608332,Minimum Accept Diet,Age
+12-15 months,2016,11.96502,Minimum Accept Diet,Age
+16-19 months,2010,10.376247,Minimum Accept Diet,Age
+16-19 months,2016,10.52699,Minimum Accept Diet,Age
+20-23 months,2010,11.053761,Minimum Accept Diet,Age
+20-23 months,2016,11.049705,Minimum Accept Diet,Age
+12-23 months,2010,9.5434113,Minimum Accept Diet,Age
+12-23 months,2016,11.204053,Minimum Accept Diet,Age
+Both,2010,16.817556,Minimum Diet Diversity,Overall
+Both,2016,18.486036,Minimum Diet Diversity,Overall
+Boys,2010,16.248625,Minimum Diet Diversity,Gender
+Boys,2016,19.03006,Minimum Diet Diversity,Gender
+Girls,2010,17.376921,Minimum Diet Diversity,Gender
+Girls,2016,17.929056,Minimum Diet Diversity,Gender
+Urban,2010,30.046295,Minimum Diet Diversity,Location
+Urban,2016,42.842899,Minimum Diet Diversity,Location
+Rural,2010,15.538716,Minimum Diet Diversity,Location
+Rural,2016,16.241056,Minimum Diet Diversity,Location
+Lowest,2010,11.749896,Minimum Diet Diversity,Income
+Lowest,2016,8.8329344,Minimum Diet Diversity,Income
+Second lowest,2010,12.688277,Minimum Diet Diversity,Income
+Second lowest,2016,11.634831,Minimum Diet Diversity,Income
+Middle,2010,11.270504,Minimum Diet Diversity,Income
+Middle,2016,18.108515,Minimum Diet Diversity,Income
+Second highest,2010,22.427767,Minimum Diet Diversity,Income
+Second highest,2016,21.042643,Minimum Diet Diversity,Income
+Highest,2010,27.693125,Minimum Diet Diversity,Income
+Highest,2016,39.017834,Minimum Diet Diversity,Income
+None or primary,2010,15.013303,Minimum Diet Diversity,Education
+None or primary,2016,16.148249,Minimum Diet Diversity,Education
+Secondary or higher,2010,42.802925,Minimum Diet Diversity,Education
+Secondary or higher,2016,36.598866,Minimum Diet Diversity,Education
+6-11 months,2010,12.872274,Minimum Diet Diversity,Age
+6-11 months,2016,13.425069,Minimum Diet Diversity,Age
+12-15 months,2010,18.013819,Minimum Diet Diversity,Age
+12-15 months,2016,22.542831,Minimum Diet Diversity,Age
+16-19 months,2010,19.399355,Minimum Diet Diversity,Age
+16-19 months,2016,20.937405,Minimum Diet Diversity,Age
+20-23 months,2010,19.176998,Minimum Diet Diversity,Age
+20-23 months,2016,20.015249,Minimum Diet Diversity,Age
+12-23 months,2010,18.847569,Minimum Diet Diversity,Age
+12-23 months,2016,21.243589,Minimum Diet Diversity,Age
+Both,2010,31.860361,Minimum Meal,Overall
+Both,2016,39.249451,Minimum Meal,Overall
+Boys,2010,30.066029,Minimum Meal,Gender
+Boys,2016,38.927372,Minimum Meal,Gender
+Girls,2010,33.624519,Minimum Meal,Gender
+Girls,2016,39.579197,Minimum Meal,Gender
+Urban,2010,40.128403,Minimum Meal,Location
+Urban,2016,59.209717,Minimum Meal,Location
+Rural,2010,31.061077,Minimum Meal,Location
+Rural,2016,37.409706,Minimum Meal,Location
+Lowest,2010,28.095409,Minimum Meal,Income
+Lowest,2016,34.048653,Minimum Meal,Income
+Second lowest,2010,29.352343,Minimum Meal,Income
+Second lowest,2016,32.143608,Minimum Meal,Income
+Middle,2010,28.486351,Minimum Meal,Income
+Middle,2016,40.323616,Minimum Meal,Income
+Second highest,2010,34.175156,Minimum Meal,Income
+Second highest,2016,36.700386,Minimum Meal,Income
+Highest,2010,40.442696,Minimum Meal,Income
+Highest,2016,57.968678,Minimum Meal,Income
+None or primary,2010,31.010229,Minimum Meal,Education
+None or primary,2016,37.032219,Minimum Meal,Education
+Secondary or higher,2010,44.104172,Minimum Meal,Education
+Secondary or higher,2016,56.428211,Minimum Meal,Education
+6-11 months,2010,35.392456,Minimum Meal,Age
+6-11 months,2016,43.095779,Minimum Meal,Age
+12-15 months,2010,25.77202,Minimum Meal,Age
+12-15 months,2016,37.310276,Minimum Meal,Age
+16-19 months,2010,34.626396,Minimum Meal,Age
+16-19 months,2016,39.269371,Minimum Meal,Age
+20-23 months,2010,29.869171,Minimum Meal,Age
+20-23 months,2016,34.561829,Minimum Meal,Age
+12-23 months,2010,30.04295,Minimum Meal,Age
+12-23 months,2016,37.153713,Minimum Meal,Age
+Both,2000,95.909088,Continued Breastfeeding 1yr,Overall
+Both,2010,94.328491,Continued Breastfeeding 1yr,Overall
+Both,2016,95.005646,Continued Breastfeeding 1yr,Overall
+Boys,2000,97.087379,Continued Breastfeeding 1yr,Gender
+Boys,2010,94.056885,Continued Breastfeeding 1yr,Gender
+Boys,2016,95.145393,Continued Breastfeeding 1yr,Gender
+Girls,2000,94.871796,Continued Breastfeeding 1yr,Gender
+Girls,2010,94.595787,Continued Breastfeeding 1yr,Gender
+Girls,2016,94.873276,Continued Breastfeeding 1yr,Gender
+Urban,2000,,Continued Breastfeeding 1yr,Location
+Urban,2010,88.944931,Continued Breastfeeding 1yr,Location
+Urban,2016,89.640587,Continued Breastfeeding 1yr,Location
+Rural,2000,95.566505,Continued Breastfeeding 1yr,Location
+Rural,2010,94.896729,Continued Breastfeeding 1yr,Location
+Rural,2016,95.491562,Continued Breastfeeding 1yr,Location
+Lowest,2000,97.368416,Continued Breastfeeding 1yr,Income
+Lowest,2010,93.426338,Continued Breastfeeding 1yr,Income
+Lowest,2016,96.056374,Continued Breastfeeding 1yr,Income
+Second lowest,2000,95.348831,Continued Breastfeeding 1yr,Income
+Second lowest,2010,99.500931,Continued Breastfeeding 1yr,Income
+Second lowest,2016,95.642906,Continued Breastfeeding 1yr,Income
+Middle,2000,95.744682,Continued Breastfeeding 1yr,Income
+Middle,2010,90.507706,Continued Breastfeeding 1yr,Income
+Middle,2016,97.161774,Continued Breastfeeding 1yr,Income
+Second highest,2000,94.117645,Continued Breastfeeding 1yr,Income
+Second highest,2010,98.114006,Continued Breastfeeding 1yr,Income
+Second highest,2016,95.838463,Continued Breastfeeding 1yr,Income
+Highest,2000,97.560974,Continued Breastfeeding 1yr,Income
+Highest,2010,88.03344,Continued Breastfeeding 1yr,Income
+Highest,2016,89.269669,Continued Breastfeeding 1yr,Income
+None or primary,2000,94.029846,Continued Breastfeeding 1yr,Education
+None or primary,2010,94.615486,Continued Breastfeeding 1yr,Education
+None or primary,2016,95.8097,Continued Breastfeeding 1yr,Education
+Secondary or higher,2000,,Continued Breastfeeding 1yr,Education
+Secondary or higher,2010,89.863548,Continued Breastfeeding 1yr,Education
+Secondary or higher,2016,89.177559,Continued Breastfeeding 1yr,Education
+Both,2000,85.051552,Continued Breastfeeding 2yr,Overall
+Both,2010,79.115974,Continued Breastfeeding 2yr,Overall
+Both,2016,81.379242,Continued Breastfeeding 2yr,Overall
+Boys,2000,84.782608,Continued Breastfeeding 2yr,Gender
+Boys,2010,80.570915,Continued Breastfeeding 2yr,Gender
+Boys,2016,80.279732,Continued Breastfeeding 2yr,Gender
+Girls,2000,85.294113,Continued Breastfeeding 2yr,Gender
+Girls,2010,77.825249,Continued Breastfeeding 2yr,Gender
+Girls,2016,82.468506,Continued Breastfeeding 2yr,Gender
+Urban,2000,,Continued Breastfeeding 2yr,Location
+Urban,2010,55.693428,Continued Breastfeeding 2yr,Location
+Urban,2016,73.565071,Continued Breastfeeding 2yr,Location
+Rural,2000,87.570618,Continued Breastfeeding 2yr,Location
+Rural,2010,81.462929,Continued Breastfeeding 2yr,Location
+Rural,2016,82.008751,Continued Breastfeeding 2yr,Location
+Lowest,2000,96.774193,Continued Breastfeeding 2yr,Income
+Lowest,2010,87.214073,Continued Breastfeeding 2yr,Income
+Lowest,2016,86.903801,Continued Breastfeeding 2yr,Income
+Second lowest,2000,78.125,Continued Breastfeeding 2yr,Income
+Second lowest,2010,80.062126,Continued Breastfeeding 2yr,Income
+Second lowest,2016,88.197937,Continued Breastfeeding 2yr,Income
+Middle,2000,91.489365,Continued Breastfeeding 2yr,Income
+Middle,2010,78.729706,Continued Breastfeeding 2yr,Income
+Middle,2016,76.621262,Continued Breastfeeding 2yr,Income
+Second highest,2000,85.714287,Continued Breastfeeding 2yr,Income
+Second highest,2010,81.104759,Continued Breastfeeding 2yr,Income
+Second highest,2016,75.745705,Continued Breastfeeding 2yr,Income
+Highest,2000,73.809525,Continued Breastfeeding 2yr,Income
+Highest,2010,65.222939,Continued Breastfeeding 2yr,Income
+Highest,2016,75.243889,Continued Breastfeeding 2yr,Income
+None or primary,2000,85.714287,Continued Breastfeeding 2yr,Education
+None or primary,2010,81.187157,Continued Breastfeeding 2yr,Education
+None or primary,2016,81.905235,Continued Breastfeeding 2yr,Education
+Secondary or higher,2000,,Continued Breastfeeding 2yr,Education
+Secondary or higher,2010,50.321545,Continued Breastfeeding 2yr,Education
+Secondary or higher,2016,76.307419,Continued Breastfeeding 2yr,Education
+Both,2010,73.613617,Early Initiation,Overall
+Both,2016,85.043709,Early Initiation,Overall
+Boys,2010,73.847946,Early Initiation,Gender
+Boys,2016,84.154419,Early Initiation,Gender
+Girls,2010,73.372398,Early Initiation,Gender
+Girls,2016,85.954659,Early Initiation,Gender
+Urban,2010,65.388626,Early Initiation,Location
+Urban,2016,77.912094,Early Initiation,Location
+Rural,2010,74.369659,Early Initiation,Location
+Rural,2016,85.751656,Early Initiation,Location
+Lowest,2010,74.243233,Early Initiation,Income
+Lowest,2016,86.359253,Early Initiation,Income
+Second lowest,2010,74.347481,Early Initiation,Income
+Second lowest,2016,86.427467,Early Initiation,Income
+Middle,2010,73.176292,Early Initiation,Income
+Middle,2016,85.273399,Early Initiation,Income
+Second highest,2010,74.935081,Early Initiation,Income
+Second highest,2016,85.12442,Early Initiation,Income
+Highest,2010,71.012672,Early Initiation,Income
+Highest,2016,81.017593,Early Initiation,Income
+None or primary,2010,73.585388,Early Initiation,Education
+None or primary,2016,85.989532,Early Initiation,Education
+Secondary or higher,2010,74.016029,Early Initiation,Education
+Secondary or higher,2016,78.109291,Early Initiation,Education
+Both,2000,59.217876,Exclusive Breastfeeding,Overall
+Both,2010,69.284081,Exclusive Breastfeeding,Overall
+Both,2016,82.326126,Exclusive Breastfeeding,Overall
+Boys,2000,61.458332,Exclusive Breastfeeding,Gender
+Boys,2010,70.343102,Exclusive Breastfeeding,Gender
+Boys,2016,81.826881,Exclusive Breastfeeding,Gender
+Girls,2000,56.626503,Exclusive Breastfeeding,Gender
+Girls,2010,68.072868,Exclusive Breastfeeding,Gender
+Girls,2016,82.826294,Exclusive Breastfeeding,Gender
+Urban,2000,30.769232,Exclusive Breastfeeding,Location
+Urban,2010,58.852257,Exclusive Breastfeeding,Location
+Urban,2016,70.822655,Exclusive Breastfeeding,Location
+Rural,2000,61.445786,Exclusive Breastfeeding,Location
+Rural,2010,70.117584,Exclusive Breastfeeding,Location
+Rural,2016,83.723114,Exclusive Breastfeeding,Location
+0-1 month,2000,77.659576,Exclusive Breastfeeding,Age
+0-1 month,2010,82.342911,Exclusive Breastfeeding,Age
+0-1 month,2016,94.124207,Exclusive Breastfeeding,Age
+2-3 months,2000,68.939392,Exclusive Breastfeeding,Age
+2-3 months,2010,77.805565,Exclusive Breastfeeding,Age
+2-3 months,2016,90.566856,Exclusive Breastfeeding,Age
+4-5 months,2000,36.363636,Exclusive Breastfeeding,Age
+4-5 months,2010,53.409012,Exclusive Breastfeeding,Age
+4-5 months,2016,63.208717,Exclusive Breastfeeding,Age
+Lowest,2000,59.420288,Exclusive Breastfeeding,Income
+Lowest,2010,61.355209,Exclusive Breastfeeding,Income
+Lowest,2016,81.694954,Exclusive Breastfeeding,Income
+Second lowest,2000,65.079369,Exclusive Breastfeeding,Income
+Second lowest,2010,69.181023,Exclusive Breastfeeding,Income
+Second lowest,2016,80.137062,Exclusive Breastfeeding,Income
+Middle,2000,59.210526,Exclusive Breastfeeding,Income
+Middle,2010,72.332886,Exclusive Breastfeeding,Income
+Middle,2016,84.552643,Exclusive Breastfeeding,Income
+Second highest,2000,61.42857,Exclusive Breastfeeding,Income
+Second highest,2010,76.365707,Exclusive Breastfeeding,Income
+Second highest,2016,87.68853,Exclusive Breastfeeding,Income
+Highest,2000,52.499996,Exclusive Breastfeeding,Income
+Highest,2010,64.926018,Exclusive Breastfeeding,Income
+Highest,2016,77.559875,Exclusive Breastfeeding,Income
+None or primary,2000,60.869564,Exclusive Breastfeeding,Education
+None or primary,2010,70.080994,Exclusive Breastfeeding,Education
+None or primary,2016,83.380104,Exclusive Breastfeeding,Education
+Secondary or higher,2000,,Exclusive Breastfeeding,Education
+Secondary or higher,2010,58.843781,Exclusive Breastfeeding,Education
+Secondary or higher,2016,75.973305,Exclusive Breastfeeding,Education
+Both,2010,70.989128,Solid Foods,Overall
+Both,2016,85.603539,Solid Foods,Overall
+Boys,2010,69.498352,Solid Foods,Gender
+Boys,2016,84.428497,Solid Foods,Gender
+Girls,2010,72.430733,Solid Foods,Gender
+Girls,2016,86.993095,Solid Foods,Gender
+Urban,2010,77.924278,Solid Foods,Location
+Urban,2016,84.856697,Solid Foods,Location
+Rural,2010,70.357574,Solid Foods,Location
+Rural,2016,85.667534,Solid Foods,Location
+Lowest,2010,75.487808,Solid Foods,Income
+Lowest,2016,86.488358,Solid Foods,Income
+Second lowest,2010,62.373161,Solid Foods,Income
+Second lowest,2016,78.663216,Solid Foods,Income
+Middle,2010,68.683311,Solid Foods,Income
+Middle,2016,85.136452,Solid Foods,Income
+Second highest,2010,72.852852,Solid Foods,Income
+Second highest,2016,90.062393,Solid Foods,Income
+Highest,2010,75.060883,Solid Foods,Income
+Highest,2016,88.689461,Solid Foods,Income
+None or primary,2010,71.400085,Solid Foods,Education
+None or primary,2016,85.339478,Solid Foods,Education
+Secondary or higher,2010,65.165672,Solid Foods,Education
+Secondary or higher,2016,87.334602,Solid Foods,Education
+,,,Burden Text,All
+,,,Country Class,All
+,,,Fbdg,All
+,,,Multi Sec,All
+,,,Stunting Plan,All
+,,,Anaemia Plan,All
+,,,Lbw Plan,All
+,,,Child Overweight Plan,All
+,,,Ebf Plan,All
+,,,Wasting Plan,All
+,,,Sodium Plan,All
+,,,Overweight Adults Adoles Plan,All
+,,,Salt Leg,All
+,,,Sugar Tax,All
+,,,Sodium Policy,All
+,,,Ncd Unhealthy,All
+,,,Ncd Policy,All
+,,,Diabetes Policy,All
+,,,Child Ad Policy,All
+,,,Fatty Acids Policy,All
+,,,Ebf Track,All
+,,,Lbw Track,All
+,,,Adult Fem Diabetes Track,All
+,,,Adult Mal Diabetes Track,All
+,,,Adult Fem Obesity Track,All
+,,,Adult Mal Obesity Track,All
+,,,Wra Anaemia Track,All
+,,,Under 5 Overweight Track,All
+,,,Under 5 Stunting Track,All
+,,,Under 5 Wasting Track,All
+,2004,0.072,Community Health Workers,All
+,2000,50.6631188534789,Basic Water,All
+,2001,51.2344746070724,Basic Water,All
+,2002,51.8093329721341,Basic Water,All
+,2003,52.3873280037004,Basic Water,All
+,2004,52.9684344713518,Basic Water,All
+,2005,53.5526293963016,Basic Water,All
+,2006,54.1402313593146,Basic Water,All
+,2007,54.7308703344975,Basic Water,All
+,2008,55.32519876027,Basic Water,All
+,2009,55.9221755867471,Basic Water,All
+,2010,56.5231191725312,Basic Water,All
+,2011,57.1276616090397,Basic Water,All
+,2012,57.7354344073355,Basic Water,All
+,2013,58.3474079884886,Basic Water,All
+,2014,58.9625393204856,Basic Water,All
+,2015,59.5814674031405,Basic Water,All
+,2016,60.2041520313755,Basic Water,All
+,2017,60.8305489209566,Basic Water,All
+,2000,19.421871462793,Limited Water,All
+,2001,19.4453394213695,Limited Water,All
+,2002,19.4664402634824,Limited Water,All
+,2003,19.485334515314,Limited Water,All
+,2004,19.5020414260036,Limited Water,All
+,2005,19.5165826867368,Limited Water,All
+,2006,19.5288423332368,Limited Water,All
+,2007,19.5389806083529,Limited Water,All
+,2008,19.5467456111282,Limited Water,All
+,2009,19.5525782267964,Limited Water,All
+,2010,19.5559504816311,Limited Water,All
+,2011,19.5570304003051,Limited Water,All
+,2012,19.555983487899,Limited Water,All
+,2013,19.5524308373172,Limited Water,All
+,2014,19.5468121979576,Limited Water,All
+,2015,19.5388910147751,Limited Water,All
+,2016,19.5287028065525,Limited Water,All
+,2017,19.5162814389481,Limited Water,All
+,2000,14.5053527665275,Unimproved Water,All
+,2001,14.5406379357789,Unimproved Water,All
+,2002,14.5744154213718,Unimproved Water,All
+,2003,14.6067760891827,Unimproved Water,All
+,2004,14.6376968090288,Unimproved Water,All
+,2005,14.6671485453332,Unimproved Water,All
+,2006,14.6949709538119,Unimproved Water,All
+,2007,14.7212682477027,Unimproved Water,All
+,2008,14.7457472071508,Unimproved Water,All
+,2009,14.7687646908099,Unimproved Water,All
+,2010,14.7897675435626,Unimproved Water,All
+,2011,14.8088441229749,Unimproved Water,All
+,2012,14.8260946190602,Unimproved Water,All
+,2013,14.8410689726636,Unimproved Water,All
+,2014,14.8541455622256,Unimproved Water,All
+,2015,14.86499550667,Unimproved Water,All
+,2016,14.8735755900809,Unimproved Water,All
+,2017,14.8798491512709,Unimproved Water,All
+,2000,15.4096569172005,Surface Water,All
+,2001,14.7795480357792,Surface Water,All
+,2002,14.1498113430117,Surface Water,All
+,2003,13.5205613918029,Surface Water,All
+,2004,12.8918272936158,Surface Water,All
+,2005,12.2636393716284,Surface Water,All
+,2006,11.6359553536367,Surface Water,All
+,2007,11.0088808094469,Surface Water,All
+,2008,10.382308421451,Surface Water,All
+,2009,9.75648149564659,Surface Water,All
+,2010,9.13116280227518,Surface Water,All
+,2011,8.50646386768032,Surface Water,All
+,2012,7.88248748570524,Surface Water,All
+,2013,7.25909220153062,Surface Water,All
+,2014,6.63650291933121,Surface Water,All
+,2015,6.01464607541438,Surface Water,All
+,2016,5.39356957199111,Surface Water,All
+,2017,4.77332048882441,Surface Water,All
+,2000,,Safely Managed Water,All
+,2001,,Safely Managed Water,All
+,2002,,Safely Managed Water,All
+,2003,,Safely Managed Water,All
+,2004,,Safely Managed Water,All
+,2005,,Safely Managed Water,All
+,2006,,Safely Managed Water,All
+,2007,,Safely Managed Water,All
+,2008,,Safely Managed Water,All
+,2009,,Safely Managed Water,All
+,2010,,Safely Managed Water,All
+,2011,,Safely Managed Water,All
+,2012,,Safely Managed Water,All
+,2013,,Safely Managed Water,All
+,2014,,Safely Managed Water,All
+,2015,,Safely Managed Water,All
+,2016,,Safely Managed Water,All
+,2017,,Safely Managed Water,All
+,2000,45.2147438357859,Basic Sanitation,All
+,2001,45.423558615303,Basic Sanitation,All
+,2002,45.6343662349946,Basic Sanitation,All
+,2003,45.8472939991747,Basic Sanitation,All
+,2004,45.8686361300085,Basic Sanitation,All
+,2005,45.8870560452894,Basic Sanitation,All
+,2006,45.9023902344141,Basic Sanitation,All
+,2007,45.9145299666912,Basic Sanitation,All
+,2008,45.9232636546194,Basic Sanitation,All
+,2009,45.9285455969249,Basic Sanitation,All
+,2010,45.9300724555156,Basic Sanitation,All
+,2011,45.9277130639938,Basic Sanitation,All
+,2012,45.9213289130441,Basic Sanitation,All
+,2013,45.9106193377862,Basic Sanitation,All
+,2014,45.8955054064001,Basic Sanitation,All
+,2015,45.8757101376602,Basic Sanitation,All
+,2016,45.8510192551699,Basic Sanitation,All
+,2017,45.8212048667364,Basic Sanitation,All
+,2000,6.16875391637023,Limited Sanitation,All
+,2001,6.26630589794907,Limited Sanitation,All
+,2002,6.36696413023207,Limited Sanitation,All
+,2003,6.47058146220651,Limited Sanitation,All
+,2004,6.77100178037513,Limited Sanitation,All
+,2005,7.0797031071469,Limited Sanitation,All
+,2006,7.3972084511802,Limited Sanitation,All
+,2007,7.72356580283814,Limited Sanitation,All
+,2008,8.05959775166109,Limited Sanitation,All
+,2009,8.40481813827913,Limited Sanitation,All
+,2010,8.76065021359249,Limited Sanitation,All
+,2011,9.12719023188718,Limited Sanitation,All
+,2012,9.50450192032846,Limited Sanitation,All
+,2013,9.89389546217849,Limited Sanitation,All
+,2014,10.2948304781769,Limited Sanitation,All
+,2015,10.7083578380161,Limited Sanitation,All
+,2016,11.1349158647735,Limited Sanitation,All
+,2017,11.5749536433334,Limited Sanitation,All
+,2000,45.8565375459484,Unimproved Sanitation,All
+,2001,45.5542380666832,Unimproved Sanitation,All
+,2002,45.2472723826679,Unimproved Sanitation,All
+,2003,44.935665461537,Unimproved Sanitation,All
+,2004,44.6192924155656,Unimproved Sanitation,All
+,2005,44.2980248011542,Unimproved Sanitation,All
+,2006,43.9715292208764,Unimproved Sanitation,All
+,2007,43.6398682986811,Unimproved Sanitation,All
+,2008,43.3024738481482,Unimproved Sanitation,All
+,2009,42.9598484231442,Unimproved Sanitation,All
+,2010,42.6109496453631,Unimproved Sanitation,All
+,2011,42.2558155916289,Unimproved Sanitation,All
+,2012,41.8945209315449,Unimproved Sanitation,All
+,2013,41.5261298317205,Unimproved Sanitation,All
+,2014,41.1512246476674,Unimproved Sanitation,All
+,2015,40.7690890196641,Unimproved Sanitation,All
+,2016,40.3795197607858,Unimproved Sanitation,All
+,2017,39.9823169368553,Unimproved Sanitation,All
+,2000,2.75996470189544,Open Defecation,All
+,2001,2.75589742006468,Open Defecation,All
+,2002,2.75139725210544,Open Defecation,All
+,2003,2.74645907708183,Open Defecation,All
+,2004,2.74106967405073,Open Defecation,All
+,2005,2.73521604640951,Open Defecation,All
+,2006,2.72887209352925,Open Defecation,All
+,2007,2.72203593178962,Open Defecation,All
+,2008,2.71466474557125,Open Defecation,All
+,2009,2.7067878416518,Open Defecation,All
+,2010,2.69832768552877,Open Defecation,All
+,2011,2.68928111249013,Open Defecation,All
+,2012,2.67964823508262,Open Defecation,All
+,2013,2.66935536831476,Open Defecation,All
+,2014,2.65843946775552,Open Defecation,All
+,2015,2.64684300465964,Open Defecation,All
+,2016,2.63454511927073,Open Defecation,All
+,2017,2.62152455307486,Open Defecation,All
+,2000,,Safely Managed Sanitation,All
+,2001,,Safely Managed Sanitation,All
+,2002,,Safely Managed Sanitation,All
+,2003,,Safely Managed Sanitation,All
+,2004,,Safely Managed Sanitation,All
+,2005,,Safely Managed Sanitation,All
+,2006,,Safely Managed Sanitation,All
+,2007,,Safely Managed Sanitation,All
+,2008,,Safely Managed Sanitation,All
+,2009,,Safely Managed Sanitation,All
+,2010,,Safely Managed Sanitation,All
+,2011,,Safely Managed Sanitation,All
+,2012,,Safely Managed Sanitation,All
+,2013,,Safely Managed Sanitation,All
+,2014,,Safely Managed Sanitation,All
+,2015,,Safely Managed Sanitation,All
+,2016,,Safely Managed Sanitation,All
+,2017,,Safely Managed Sanitation,All
+,2000,,Total Calories Non Staple,All
+,2003,,Total Calories Non Staple,All
+,2006,,Total Calories Non Staple,All
+,2009,,Total Calories Non Staple,All
+,2012,,Total Calories Non Staple,All
+,2004,0.176,Nurses And Midwives,All
+,2004,0.026,Physicians,All
