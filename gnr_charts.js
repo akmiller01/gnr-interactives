@@ -92,6 +92,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
     if(chart_type=="numberline"){
         indicatorSelect.attr("style","display: none;")
+        overallSelect.attr("style","display: none;")
     }
 
     var svg = chartNode
@@ -177,8 +178,15 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           selectedDisaggregation = allDisaggregation[0];
         }
       }
+      if(selectedOverall == "Overall" && chart_type != "numberline"){
+        selectedDisaggregation = "Overall";
+        var filteredData = data.filter(function(d){ return selectedDisaggregation == d.disaggregation});
+        filteredData.forEach(function(d,i,dat){
+          dat[i].disagg_value = d.indicator});
+      } else {
+        var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
+      }
       
-      var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
       var allYears = d3.map(filteredData, function(d){return(d.year)}).keys();
       if(chart_type == "line" || chart_type == "bar"){
         if(allYears.length > 1){
@@ -451,6 +459,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var xAxis = d3.axisBottom(x).ticks(7);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
+          .attr("class","xaxis")
           .call(xAxis);
         var y = d3.scaleBand()
           .domain(allIndicatorValues)
@@ -458,6 +467,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var halfBandwidth = y.bandwidth()/2;
         var yAxis = d3.axisLeft().scale(y).tickSize(-width).tickSizeOuter(0);
         svg.append("g")
+          .attr("class","yaxis")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
             .domain(allIndicatorDisaggValues)
