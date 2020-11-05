@@ -32,10 +32,33 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         chartNode.append("p").text("No data (can programmatically remove element/move it to end)");
         return(false)
     }
-
+    var overallSelect = chartNode
+    .append("div");
+    overallSelect
+          .append("input")
+          .attr("value", "Overall")
+          .attr("id","Overall"+"_"+chart_id)
+          .attr("type", "radio")
+          .attr("name", chart_id+"_overall_radio")
+          .attr("checked", true);
+    overallSelect
+          .append('label')
+          .attr("for", "Overall"+"_"+chart_id)
+          .text("Overall");
+    overallSelect
+          .append("input")
+          .attr("value", "Disaggregates")
+          .attr("id","Disaggregates"+"_"+chart_id)
+          .attr("type", "radio")
+          .attr("name", chart_id+"_overall_radio")
+    overallSelect
+          .append('label')
+          .attr("for", "Disaggregates"+"_"+chart_id)
+          .text("Disaggregates");
     var allIndicator = d3.map(data, function(d){return(d.indicator)}).keys();
     var indicatorSelect = chartNode
       .append("div");
+      
     for(var i = 0; i < allIndicator.length; i++){
         theIndicator = allIndicator[i]
         if(i == 0){
@@ -69,6 +92,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
     if(chart_type=="numberline"){
         indicatorSelect.attr("style","display: none;")
+        overallSelect.attr("style","display: none;")
     }
 
     var svg = chartNode
@@ -80,14 +104,25 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-    function draw_chart(selectedIndicator, selectedDisaggregation){
+    function draw_chart(selectedIndicator, selectedDisaggregation,selectedOverall){
       clean_up();
+      if(selectedOverall != "Overall"){
+        disaggregationSelect.attr("style","display: inline;")
+        indicatorSelect.attr("style","display: block;")
+      }else{
+        disaggregationSelect.attr("style","display: none;")
+        indicatorSelect.attr("style","display: none;")
+      }
       if(selectedDisaggregation !== null){
         currentDisaggregation = selectedDisaggregation;
       }
       if(selectedDisaggregation === null){
         disaggregationSelect.selectAll("*").remove()
         var allDisaggregation = d3.map(data.filter(function(d){return selectedIndicator.includes(d.indicator)}), function(d){return(d.disaggregation)}).keys();
+        var overallIndex = allDisaggregation.indexOf("Overall")
+        if (overallIndex > -1){
+          allDisaggregation.splice(overallIndex,1)
+        }
         for(var i = 0; i < allDisaggregation.length; i++){
             theDisaggregation = allDisaggregation[i]
             if(allDisaggregation.includes(currentDisaggregation)){
@@ -132,7 +167,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("for", theDisaggregation+"_"+chart_id+"_disagg")
             .text(theDisaggregation);
         }
-        if(allDisaggregation.length > 1){
+        if(allDisaggregation.length > 1 && selectedOverall !="Overall"){
             disaggregationSelect.attr("style","display: inline;")
         }else{
             disaggregationSelect.attr("style","display: none;")
@@ -143,8 +178,15 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           selectedDisaggregation = allDisaggregation[0];
         }
       }
+      if(selectedOverall == "Overall" && chart_type != "numberline"){
+        selectedDisaggregation = "Overall";
+        var filteredData = data.filter(function(d){ return selectedDisaggregation == d.disaggregation});
+        filteredData.forEach(function(d,i,dat){
+          dat[i].disagg_value = d.indicator});
+      } else {
+        var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
+      }
       
-      var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
       var allYears = d3.map(filteredData, function(d){return(d.year)}).keys();
       if(chart_type == "line" || chart_type == "bar"){
         if(allYears.length > 1){
@@ -185,13 +227,15 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d"));
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
+        .attr('class', 'xaxis')
         .call(xAxis);
       var y = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return +d.value; }))
         .range([ height, 0 ])
         .nice();
       var yAxis = d3.axisLeft().ticks(7).scale(y);
-      svg.append("g")
+        svg.append("g")
+        .attr('class', 'yaxis')
         .call(yAxis);
       for(var i = 0; i < allDisaggValues.length; i++){
         svg.append("path")
@@ -214,7 +258,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .append("text")
           .attr("x", width + 25)
           .attr("y", i*15 + 4)
-          .style("fill", "#443e42")
+          .style("fill", "#475C6D")
           .text(function(d){ return allDisaggValues[i] })
           .attr("text-anchor", "left")
           .style("font-size", "10px");
@@ -227,7 +271,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12);
+        .attr("font-size",12)
+        .style("fill", "#475C6D");
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")
         .attr("fill","black")
@@ -241,12 +286,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var mouse_position = d3.mouse(this);
           var x_pos = x.invert(mouse_position[0]);
           var y_pos = y.invert(mouse_position[1]);
+          var tooltip_threshold_y = (d3.max(filteredData,function(d){return d.value})-d3.min(filteredData,function(d){return d.value})) * 0.1
           var closest_year_distance = d3.min(filteredData, function(d){ return Math.abs(x_pos - d.year)});
           var closest_year = filteredData.filter(function(d){return Math.abs(x_pos - d.year) == closest_year_distance})[0].year;
           var filtered_data_by_year = filteredData.filter(function(d){ return d.year == closest_year });
           var closest_value_distance = d3.min(filtered_data_by_year, function(d){ return Math.abs(y_pos - d.value)});
           var closest_value = filtered_data_by_year.filter(function(d){return Math.abs(y_pos - d.value) == closest_value_distance})[0].value;
           var highlight_data = filtered_data_by_year.filter(function(d){ return d.value == closest_value});
+          if(Math.abs(closest_value_distance) < tooltip_threshold_y && Math.abs(closest_year_distance) < 0.5){
           tooltip
           .attr("x",mouse_position[0] + 5)
           .attr("y",mouse_position[1])
@@ -266,6 +313,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("cy", function(d){return y(d.value)})
             .attr("fill", function(d){return colorScale(d.disagg_value) })
             .attr("style","opacity:1;");
+          } else {
+            tooltip
+            .text("");
+          tooltipBackground
+            .attr("style","opacity:0;");
+          highlight
+            .attr("style","opacity:0;");
+          }
         })
         .on('mouseout', function(){
           tooltip
@@ -405,6 +460,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var xAxis = d3.axisBottom(x).ticks(7);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
+          .attr("class","xaxis")
           .call(xAxis);
         var y = d3.scaleBand()
           .domain(allIndicatorValues)
@@ -412,6 +468,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var halfBandwidth = y.bandwidth()/2;
         var yAxis = d3.axisLeft().scale(y).tickSize(-width).tickSizeOuter(0);
         svg.append("g")
+          .attr("class","yaxis")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
             .domain(allIndicatorDisaggValues)
@@ -503,15 +560,23 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       svg.selectAll("*").remove();
     }
 
-    draw_chart(firstIndicator, null);
+    draw_chart(firstIndicator, null, "Overall");
 
     indicatorSelect.on("change", function(d) {
         var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
-        draw_chart(selectedIndicators, null)
+        var selectedOverall = overallSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
+        draw_chart(selectedIndicators, null,selectedOverall)
     });
     disaggregationSelect.on("change", function(d) {
         var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
         var selectedDisaggregation = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
-        draw_chart(selectedIndicators, selectedDisaggregation)
+        var selectedOverall = overallSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
+        draw_chart(selectedIndicators, selectedDisaggregation,selectedOverall)
     });
+    overallSelect.on("change", function(d) {
+      var selectedIndicators = indicatorSelect.selectAll("input:checked").nodes().map(function(d){return d.value})
+      var selectedDisaggregation = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
+      var selectedOverall = overallSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
+      draw_chart(selectedIndicators, selectedDisaggregation,selectedOverall)
+  });
   }
