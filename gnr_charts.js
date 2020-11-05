@@ -90,11 +90,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     var disaggregationSelect = chartNode
       .append("div");
 
-    if(chart_type=="numberline"){
-        indicatorSelect.attr("style","display: none;")
-        overallSelect.attr("style","display: none;")
-    }
-
     var svg = chartNode
       .append("svg")
         .attr('preserveAspectRatio', 'xMinYMin meet')
@@ -104,15 +99,9 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-    function draw_chart(selectedIndicator, selectedDisaggregation,selectedOverall){
+    function draw_chart(selectedIndicator, selectedDisaggregation, selectedOverall){
       clean_up();
-      if(selectedOverall != "Overall"){
-        disaggregationSelect.attr("style","display: inline;")
-        indicatorSelect.attr("style","display: block;")
-      }else{
-        disaggregationSelect.attr("style","display: none;")
-        indicatorSelect.attr("style","display: none;")
-      }
+
       if(selectedDisaggregation !== null){
         currentDisaggregation = selectedDisaggregation;
       }
@@ -167,22 +156,44 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("for", theDisaggregation+"_"+chart_id+"_disagg")
             .text(theDisaggregation);
         }
-        if(allDisaggregation.length > 1 && selectedOverall !="Overall"){
-            disaggregationSelect.attr("style","display: inline;")
-        }else{
-            disaggregationSelect.attr("style","display: none;")
-        }
         if(allDisaggregation.includes(currentDisaggregation)){
           selectedDisaggregation = currentDisaggregation;
         }else{
           selectedDisaggregation = allDisaggregation[0];
         }
+      }else{
+        var allDisaggregation = d3.map(data.filter(function(d){return selectedIndicator.includes(d.indicator)}), function(d){return(d.disaggregation)}).keys();
       }
+
+      if( selectedOverall == "Overall"){
+        var filteredData = data.filter(function(d){ return "Overall" == d.disaggregation});
+        var filteredDataIndicator = d3.map(filteredData, function(d){return d.indicator}).keys();
+        if( filteredData.length == 0 || filteredDataIndicator.length != allIndicator.length){
+          selectedOverall = "Disaggregates";
+          overallSelect.attr("style", "display: none;")
+        }
+      }
+
+      if(selectedOverall != "Overall"){
+        indicatorSelect.attr("style","display: block;")
+        if(allDisaggregation.length > 1){
+          disaggregationSelect.attr("style","display: inline;")
+        }else{
+          disaggregationSelect.attr("style","display: none;")
+        }
+      }else{
+        disaggregationSelect.attr("style","display: none;")
+        indicatorSelect.attr("style","display: none;")
+      }
+      if(chart_type=="numberline"){
+        indicatorSelect.attr("style","display: none;")
+        overallSelect.attr("style","display: none;")
+      }
+
       if(selectedOverall == "Overall" && chart_type != "numberline"){
         selectedDisaggregation = "Overall";
         var filteredData = data.filter(function(d){ return selectedDisaggregation == d.disaggregation});
-        filteredData.forEach(function(d,i,dat){
-          dat[i].disagg_value = d.indicator});
+        filteredData.forEach(function(d,i,dat){dat[i].disagg_value = d.indicator});
       } else {
         var filteredData = data.filter(function(d){ return selectedIndicator.includes(d.indicator) && selectedDisaggregation == d.disaggregation});
       }
