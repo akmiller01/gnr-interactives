@@ -23,6 +23,16 @@ function scaleBandInvert(scale) {
   }
 }
 
+function relative_font_size(font_size, d3_element){
+  var font_min = font_size / 2;
+  var font_max = font_size * 2;
+  var element_height = d3_element.node().getBoundingClientRect().height;
+  var relative_font = font_size * (500 / element_height);
+  var bounded_font = Math.max(Math.min(relative_font, font_max), font_min);
+  console.log(font_size, bounded_font)
+  return(bounded_font);
+}
+
 function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legend_orders){
     var chartNode = d3.select("#" + chart_id);
 
@@ -236,7 +246,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .domain(d3.extent(filteredData, function(d) { return d.year; }))
         .range([ 0, width ]);
       var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d"));
-      svg.append("g")
+      var xAxisG = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .attr('class', 'xaxis')
         .call(xAxis);
@@ -244,8 +254,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .domain(d3.extent(filteredData, function(d) { return +d.value; }))
         .range([ height, 0 ])
         .nice();
-      var yAxis = d3.axisLeft().ticks(7).scale(y);
-        svg.append("g")
+      var yAxis = d3.axisLeft().ticks(5).scale(y);
+      var yAxisG = svg.append("g")
         .attr('class', 'yaxis')
         .call(yAxis);
       for(var i = 0; i < allDisaggValues.length; i++){
@@ -261,18 +271,18 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         svg
           .append("rect")
           .attr("x", width + 10)
-          .attr("y", i*15 - (10/2))
+          .attr("y", i*20 - (relative_font_size(10, svg)/2) + 5)
           .attr("width", 10)
           .attr("height", 10)
           .style("fill", function(d){ return colorScale(allDisaggValues[i]) });
         svg
           .append("text")
           .attr("x", width + 25)
-          .attr("y", i*15 + 4)
+          .attr("y", i*20 + 9)
           .style("fill", "#475C6D")
           .text(function(d){ return allDisaggValues[i] })
           .attr("text-anchor", "left")
-          .style("font-size", "10px");
+          .style("font-size", relative_font_size(10, svg));
       }
 
       var highlight = svg
@@ -282,7 +292,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12)
+        .attr("font-size",relative_font_size(12, svg))
         .style("fill", "#475C6D");
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")
@@ -341,6 +351,10 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           highlight
             .attr("style","opacity:0;");
         });
+      xAxisG.selectAll('.tick text')
+        .attr("font-size", relative_font_size(10, svg));
+      yAxisG.selectAll('.tick text')
+        .attr("font-size", relative_font_size(10, svg));
     }
 
     function draw_bar_chart(filteredData, selectedDisaggregation){
@@ -369,7 +383,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .domain([0, x_max*2])
           .range([0, width]);
         var xAxis = d3.axisBottom(x).tickValues(filteredData.map(function(d){ return d.year })).tickFormat(d3.format("d"));
-        svg.append("g")
+        var xAxisG = svg.append("g")
           .attr("transform", "translate(0," + height + ")")
           .call(xAxis);
         var y = d3.scaleLinear()
@@ -377,7 +391,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .range([ height, 0 ])
           .nice();
         var yAxis = d3.axisLeft().ticks(7).scale(y);
-        svg.append("g")
+        var yAxisG = svg.append("g")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
             .domain(allDisaggValues)
@@ -418,27 +432,32 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           svg
             .append("rect")
             .attr("x", width + 10)
-            .attr("y", i*15 - (10/2))
+            .attr("y", i*20 - (relative_font_size(10, svg)/2) + 5)
             .attr("width", 10)
             .attr("height", 10)
             .style("fill", function(d){ return colorScale(allDisaggValues[i]) });
           svg
             .append("text")
             .attr("x", width + 25)
-            .attr("y", i*15 + 4)
+            .attr("y", i*20 + 9)
             .style("fill", "#443e42")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
-            .style("font-size", "10px");
+            .style("font-size", relative_font_size(10, svg));
         }
   
         var tooltip = svg.append("text")
           .attr("class","tooltip")
-          .attr("font-size",12);
+          .attr("font-size", relative_font_size(12, svg));
         var tooltipBackground = svg.append("rect")
           .attr("class","tooltip-bg")
           .attr("fill","black")
           .attr("rx",5);
+
+        xAxisG.selectAll('.tick text')
+          .attr("font-size", relative_font_size(10, svg));
+        yAxisG.selectAll('.tick text')
+          .attr("font-size", relative_font_size(10, svg));
     }
 
     function draw_numberline_chart(filteredData, selectedDisaggregation){
@@ -469,7 +488,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .range([0, width])
           .nice();
         var xAxis = d3.axisBottom(x).ticks(7);
-        svg.append("g")
+        var xAxisG = svg.append("g")
           .attr("transform", "translate(0," + height + ")")
           .attr("class","xaxis")
           .call(xAxis);
@@ -478,7 +497,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .range([ height, 0 ]);
         var halfBandwidth = y.bandwidth()/2;
         var yAxis = d3.axisLeft().scale(y).tickSize(-width).tickSizeOuter(0);
-        svg.append("g")
+        var yAxisG = svg.append("g")
           .attr("class","yaxis")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
@@ -497,19 +516,19 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         for(var i = 0; i < allDisaggValues.length; i++){
           svg
             .append("circle")
-            .attr("cx", width + 10)
-            .attr("cy", i*15)
+            .attr("cx", width + relative_font_size(10, svg))
+            .attr("cy", i*20 + 5)
             .attr("r", 4)
             .style("stroke", function(d){ return colorScale(allDisaggValues[i]) })
             .attr("fill", "none");
           svg
             .append("text")
             .attr("x", width + 25)
-            .attr("y", i*15 + 4)
+            .attr("y", i*20 + 9)
             .style("fill", "#443e42")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
-            .style("font-size", "10px");
+            .style("font-size", relative_font_size(10, svg));
         }
   
     var highlight = svg
@@ -519,7 +538,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12);
+        .attr("font-size",relative_font_size(12, svg));
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")
         .attr("fill","black")
@@ -574,6 +593,11 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           highlight
             .attr("style","opacity:0;");
         });
+
+      xAxisG.selectAll('.tick text')
+        .attr("font-size", relative_font_size(10, svg));
+      yAxisG.selectAll('.tick text')
+        .attr("font-size", relative_font_size(10, svg));
     }
 
     function clean_up(){
@@ -598,5 +622,5 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var selectedDisaggregation = disaggregationSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
       var selectedOverall = overallSelect.selectAll("input:checked").nodes().map(function(d){return d.value})[0]
       draw_chart(selectedIndicators, selectedDisaggregation,selectedOverall)
-  });
+    });
   }

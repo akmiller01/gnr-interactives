@@ -37,10 +37,10 @@
         font-weight:600;
         font-style: italic;
       }
-      .xaxis text {font-size:10px; font-weight: 100; fill:#475C6D; font-family: 'Averta',sans-serif; }
+      .xaxis text {font-weight: 100; fill:#475C6D; font-family: 'Averta',sans-serif; }
       .xaxis line {stroke:#475C6D;}
       .xaxis path {stroke:#475C6D;}
-      .yaxis text {font-size:10px; font-weight: 100; fill:#475C6D; font-family: 'Averta',sans-serif; }
+      .yaxis text {font-weight: 100; fill:#475C6D; font-family: 'Averta',sans-serif; }
       .yaxis line {stroke:#475C6D;}
       .yaxis path {stroke:#475C6D;}
       .tooltip {pointer-events: none;}
@@ -125,13 +125,13 @@
           "Non-pregnant women": pal.dark_orange
         }
       }
-      var margin2 = {top: 10, right: 300, bottom: 30, left: 30},
+      var margin2 = {top: 10, right: 300, bottom: 30, left: 50},
         width2 = 800 - margin2.left - margin2.right,
         height2 = 200 - margin2.top - margin2.bottom;
-      var margin3 = {top: 10, right: 300, bottom: 30, left: 30},
+      var margin3 = {top: 10, right: 300, bottom: 30, left: 50},
         width3 = 800 - margin3.left - margin3.right,
         height3 = 200 - margin3.top - margin3.bottom;
-      var numberLineMargin = {top: 10, right: 200, bottom: 30, left: 100},
+      var numberLineMargin = {top: 10, right: 200, bottom: 30, left: 110},
       numberLineMarginwidth = 800 - numberLineMargin.left - numberLineMargin.right,
       numberLineMarginheight = 200 - numberLineMargin.top - numberLineMargin.bottom;
       d3.json("burundi.json", function(all_data){
