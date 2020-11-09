@@ -537,6 +537,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var closest_x_distance = d3.min(filtered_data_by_y, function(d){ return Math.abs(x_pos - d.value)});
           var closest_x = filtered_data_by_y.filter(function(d){return Math.abs(x_pos - d.value) == closest_x_distance})[0].value;
           var highlight_data = filtered_data_by_y.filter(function(d){ return d.value == closest_x });
+          if(Math.abs(closest_x_distance)<10){
           tooltip
           .attr("x",mouse_position[0] + 5)
           .attr("y",mouse_position[1])
@@ -556,6 +557,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("cy", function(d){return y(d.indicator) + halfBandwidth})
             .attr("fill", function(d){return colorScale(d.disagg_value) })
             .attr("style","opacity:1;");
+          }else {
+              tooltip
+              .text("");
+            tooltipBackground
+              .attr("style","opacity:0;");
+            highlight
+              .attr("style","opacity:0;");
+            }
         })
         .on('mouseout', function(){
           tooltip
