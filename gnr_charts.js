@@ -372,6 +372,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)
           .range(disaggPal);
+        var y = d3.scaleLinear()
+          .domain(d3.extent(filteredData, function(d) { return +d.value; }))
+          .range([ height, 0 ])
+          .nice();
+        var yAxis = d3.axisLeft().ticks(4).scale(y).tickSize(0).tickSizeOuter(0).tickSizeInner(-width).tickFormat( function(d) { return d + "%" } );
+        svg.append("g")
+          .attr('class', 'yaxis')
+          .call(yAxis);
         var x_max = d3.max(filteredData, function(d) { return d.year; });
         var x = d3.scaleLinear()
           .domain([0, x_max*2])
@@ -379,14 +387,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var xAxis = d3.axisBottom(x).tickValues(filteredData.map(function(d){ return d.year })).tickFormat(d3.format("d"));
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
+          .attr('class', 'xaxis')
           .call(xAxis);
-        var y = d3.scaleLinear()
-          .domain(d3.extent(filteredData, function(d) { return +d.value; }))
-          .range([ height, 0 ])
-          .nice();
-        var yAxis = d3.axisLeft().ticks(4).scale(y).tickSizeInner(-width);
-        svg.append("g")
-          .call(yAxis);
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0-margin.left)
+          .attr("x",0 - (height / 5))
+          .attr("dy", "1em")
+          .attr('class','yaxistitle')
+          .style("text-anchor", "middle")
+          .text("Prevalence (%)");
         var disaggScale = d3.scaleBand()
             .domain(allDisaggValues)
             .range([0, width])
@@ -404,7 +414,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .on("mousemove", function(highlight_data){
                 var mouse_position = d3.mouse(this);
                 tooltip
-                .attr("x",mouse_position[0] + 5)
+                .attr("x",mouse_position[0] -30)
                 .attr("y",mouse_position[1])
                 .text(
                   parseFloat(highlight_data.value).toFixed(2)
