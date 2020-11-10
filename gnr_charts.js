@@ -231,14 +231,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
         .range(disaggPal);
-      var x = d3.scaleLinear()
-        .domain(d3.extent(filteredData, function(d) { return d.year; }))
-        .range([ 0, width ]);
-      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(0);
-      svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .attr('class', 'xaxis')
-        .call(xAxis);
       var y = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return +d.value; }))
         .range([ height, 0 ])
@@ -247,6 +239,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         svg.append("g")
         .attr('class', 'yaxis')
         .call(yAxis);
+      var x = d3.scaleLinear()
+        .domain(d3.extent(filteredData, function(d) { return d.year; }))
+        .range([ 0, width ]);
+      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(5);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .attr('class', 'xaxis')
+        .call(xAxis);
       svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0-margin.left)
@@ -267,15 +267,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .style("fill", "none");
         svg
           .append("rect")
-          .attr("x", width + 10)
-          .attr("y", i*15 - (10/2))
+          .attr("x", width + 20)
+          .attr("y", i*20 + 4)
           .attr("width", 10)
           .attr("height", 10)
           .style("fill", function(d){ return colorScale(allDisaggValues[i]) });
         svg
           .append("text")
-          .attr("x", width + 25)
-          .attr("y", i*15 + 4)
+          .attr("class","legend")
+          .attr("x", width + 40)
+          .attr("y", i*20 +12.5)
           .style("fill", "#475C6D")
           .text(function(d){ return allDisaggValues[i] })
           .attr("text-anchor", "left")
@@ -424,15 +425,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
               });
           svg
             .append("rect")
-            .attr("x", width + 10)
-            .attr("y", i*15 - (10/2))
+            .attr("x", width + 20)
+            .attr("y", i*20 +4)
             .attr("width", 10)
             .attr("height", 10)
             .style("fill", function(d){ return colorScale(allDisaggValues[i]) });
           svg
             .append("text")
-            .attr("x", width + 25)
-            .attr("y", i*15 + 4)
+            .attr("class","legend")
+            .attr("x", width + 40)
+            .attr("y", i*20 +12.5)
             .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
@@ -505,15 +507,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           svg
             .append("circle")
             .attr("cx", width + 10)
-            .attr("cy", i*15)
+            .attr("cy", i*20)
             .attr("r", 4)
             .style("stroke", function(d){ return colorScale(allDisaggValues[i]) })
             .style("stroke-width", 1.5)
             .attr("fill", "none");
           svg
             .append("text")
+            .attr("class","legend")
             .attr("x", width + 25)
-            .attr("y", i*15 + 4)
+            .attr("y", i*20 + 4)
             .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
