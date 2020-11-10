@@ -250,11 +250,11 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .call(xAxis);
       svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0-margin.left)
-        .attr("x",0 - (height / 5))
+        .attr("y", 0 - margin.left)
+        .attr("x", 0)
         .attr("dy", "1em")
         .attr('class','yaxistitle')
-        .style("text-anchor", "middle")
+        .style("text-anchor", "end")
         .text("Prevalence (%)");
       for(var i = 0; i < allDisaggValues.length; i++){
         svg.append("path")
@@ -280,8 +280,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .attr("y", i*20 +12.5)
           .style("fill", "#475C6D")
           .text(function(d){ return allDisaggValues[i] })
-          .attr("text-anchor", "left")
-          .style("font-size", "10px");
+          .attr("text-anchor", "left");
       }
 
       var highlight = svg
@@ -291,7 +290,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12)
         .style("fill", "#475C6D");
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")
@@ -392,11 +390,11 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .call(xAxis);
         svg.append("text")
           .attr("transform", "rotate(-90)")
-          .attr("y", 0-margin.left)
-          .attr("x",0 - (height / 5))
+          .attr("y", 0 - margin.left)
+          .attr("x", 0)
           .attr("dy", "1em")
           .attr('class','yaxistitle')
-          .style("text-anchor", "middle")
+          .style("text-anchor", "end")
           .text("Prevalence (%)");
         var disaggScale = d3.scaleBand()
             .domain(allDisaggValues)
@@ -448,13 +446,11 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("y", i*20 +12.5)
             .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
-            .attr("text-anchor", "left")
-            .style("font-size", "10px");
+            .attr("text-anchor", "left");
         }
   
         var tooltip = svg.append("text")
           .attr("class","tooltip")
-          .attr("font-size",12)
           .style("fill", "#475C6D");
         var tooltipBackground = svg.append("rect")
           .attr("class","tooltip-bg")
@@ -531,8 +527,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("y", i*20 + 4)
             .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
-            .attr("text-anchor", "left")
-            .style("font-size", "10px");
+            .attr("text-anchor", "left");
         }
   
     var highlight = svg
@@ -542,7 +537,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12)
         .style("fill", "#475C6D");
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")

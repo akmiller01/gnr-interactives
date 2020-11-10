@@ -5,43 +5,43 @@
     <script src="gnr_charts.js"></script>
     <style>
       @font-face {
-        font-family: 'Averta';
+        font-family: 'Averta W01 Regular';
         src: url('fonts/Averta-Regular.woff');
         font-weight: normal;
       }
       @font-face {
-        font-family: 'Averta';
+        font-family: 'Averta W01 Regular';
         src: url('fonts/Averta-Bold.woff');
         font-weight: bold;
       }
       @font-face {
-        font-family: 'Averta';
+        font-family: 'Averta W01 Regular';
         src: url('fonts/Averta-BoldItalic.woff');
         font-weight: bold;
         font-style: italic;
       }
       @font-face {
-        font-family: 'Averta';
+        font-family: 'Averta W01 Regular';
         src: url('fonts/Averta-RegularItalic.woff');
         font-weight: normal;
         font-style: italic;
       }
       @font-face {
-        font-family: 'Averta';
+        font-family: 'Averta W01 Regular';
         src: url('fonts/Averta-Semibold.woff');
         font-weight:600;
       }
       @font-face {
-        font-family: 'Averta';
+        font-family: 'Averta W01 Regular';
         src: url('fonts/Averta-SemiboldItalic.woff');
         font-weight:600;
         font-style: italic;
       }
-      .xaxis text {font-size:10px; font-weight: 100; fill:#475C6D; font-family: 'Averta',sans-serif; }
+      .xaxis text {font-weight: 100; fill:#475C6D; font-family: 'Averta W01 Regular',sans-serif; }
       .xaxis line {stroke:transparent;}
       .xaxis path {stroke:#475C6D;}
-      .yaxistitle {font-size:10px; font-weight: 100; fill:#CFD9E5; font-family: 'Averta',sans-serif; }
-      .yaxis text {font-size:10px; font-weight: 100; fill:#CFD9E5; font-family: 'Averta',sans-serif; }
+      .yaxistitle {font-weight: 100; fill:#CFD9E5; font-family: 'Averta W01 Regular',sans-serif; }
+      .yaxis text {font-weight: 100; fill:#CFD9E5; font-family: 'Averta W01 Regular',sans-serif; }
       .yaxis line {stroke:#CFD9E5;}
       .yaxis path {stroke:transparent;}
       .tooltip {pointer-events: none;}
@@ -49,9 +49,22 @@
       .chart-wrapper-third {float:left; width: 33%;}
       .chart-wrapper-half {float:left; width:50%;}
       .chart-wrapper-full {float:left; width:100%;}
-      h1 {font-family: 'Averta';float:left; width: 100%;color:#475C6D;}
-      h2 {font-family: 'Averta';font-size:25px;color:#475C6D;}
-      body {font-family: 'Averta';color:#475C6D;}
+      h1 {font-family: 'Averta W01 Regular';float:left; width: 100%;color:#475C6D;}
+      h2 {font-family: 'Averta W01 Regular';font-size:25px;color:#475C6D;}
+      body {font-family: 'Averta W01 Regular';color:#475C6D;}
+      .xaxis text, .yaxis text, .yaxistitle, .tooltip, .legend {
+        font-size:10px
+      }
+      @media screen and (max-width: 800px) {
+        .xaxis text, .yaxis text, .yaxistitle, .tooltip, .legend {
+          font-size:15px
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .xaxis text, .yaxis text, .yaxistitle, .tooltip, .legend {
+          font-size:20px
+        }
+      }
     </style>
   </head>
   <body>
@@ -126,13 +139,13 @@
           "Non-pregnant women": pal.dark_orange
         }
       }
-      var margin2 = {top: 10, right: 300, bottom: 30, left: 45},
+      var margin2 = {top: 10, right: 300, bottom: 30, left: 80},
         width2 = 800 - margin2.left - margin2.right,
         height2 = 200 - margin2.top - margin2.bottom;
-      var margin3 = {top: 10, right: 300, bottom: 30, left: 30},
+      var margin3 = {top: 10, right: 300, bottom: 30, left: 80},
         width3 = 800 - margin3.left - margin3.right,
         height3 = 200 - margin3.top - margin3.bottom;
-      var numberLineMargin = {top: 10, right: 200, bottom: 30, left: 100},
+      var numberLineMargin = {top: 10, right: 200, bottom: 30, left: 120},
       numberLineMarginwidth = 800 - numberLineMargin.left - numberLineMargin.right,
       numberLineMarginheight = 200 - numberLineMargin.top - numberLineMargin.bottom;
       d3.json("burundi.json", function(all_data){
