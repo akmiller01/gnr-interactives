@@ -433,7 +433,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .append("text")
             .attr("x", width + 25)
             .attr("y", i*15 + 4)
-            .style("fill", "#443e42")
+            .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
             .style("font-size", "10px");
@@ -514,7 +514,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .append("text")
             .attr("x", width + 25)
             .attr("y", i*15 + 4)
-            .style("fill", "#443e42")
+            .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
             .style("font-size", "10px");
