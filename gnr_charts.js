@@ -34,6 +34,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     }
     var overallSelect = chartNode
     .append("div");
+    .attr('class', 'overallselect')
     overallSelect
           .append("input")
           .attr("value", "Overall")
@@ -58,7 +59,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     var allIndicator = d3.map(data, function(d){return(d.indicator)}).keys();
     var indicatorSelect = chartNode
       .append("div");
-      
+      .attr('class', 'indicatorselect')
     for(var i = 0; i < allIndicator.length; i++){
         theIndicator = allIndicator[i]
         if(i == 0){
@@ -89,7 +90,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     var currentDisaggregation = "";
     var disaggregationSelect = chartNode
       .append("div");
-
+      .attr('class', 'disaggregationselect')
     var svg = chartNode
       .append("svg")
         .attr('preserveAspectRatio', 'xMinYMin meet')
@@ -231,14 +232,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
         .range(disaggPal);
-      var x = d3.scaleLinear()
-        .domain(d3.extent(filteredData, function(d) { return d.year; }))
-        .range([ 0, width ]);
-      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(0);
-      svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .attr('class', 'xaxis')
-        .call(xAxis);
       var y = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return +d.value; }))
         .range([ height, 0 ])
@@ -247,6 +240,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         svg.append("g")
         .attr('class', 'yaxis')
         .call(yAxis);
+      var x = d3.scaleLinear()
+        .domain(d3.extent(filteredData, function(d) { return d.year; }))
+        .range([ 0, width ]);
+      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(5).tickSizeOuter(0);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .attr('class', 'xaxis')
+        .call(xAxis);
       svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0-margin.left)
@@ -267,15 +268,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .style("fill", "none");
         svg
           .append("rect")
-          .attr("x", width + 10)
-          .attr("y", i*15 - (10/2))
+          .attr("x", width + 20)
+          .attr("y", i*20 + 4)
           .attr("width", 10)
           .attr("height", 10)
           .style("fill", function(d){ return colorScale(allDisaggValues[i]) });
         svg
           .append("text")
-          .attr("x", width + 25)
-          .attr("y", i*15 + 4)
+          .attr("class","legend")
+          .attr("x", width + 40)
+          .attr("y", i*20 +12.5)
           .style("fill", "#475C6D")
           .text(function(d){ return allDisaggValues[i] })
           .attr("text-anchor", "left")
@@ -311,13 +313,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var closest_value_distance = d3.min(filtered_data_by_year, function(d){ return Math.abs(y_pos - d.value)});
           var closest_value = filtered_data_by_year.filter(function(d){return Math.abs(y_pos - d.value) == closest_value_distance})[0].value;
           var highlight_data = filtered_data_by_year.filter(function(d){ return d.value == closest_value});
+          console.log(parseFloat(highlight_data[0].value).toFixed(2)+highlight_data[0].disaggregation+highlight_data[0].disagg_value)
           if(Math.abs(closest_value_distance) < tooltip_threshold_y && Math.abs(closest_year_distance) < 0.5){
           tooltip
           .attr("x",mouse_position[0]-30)
           .attr("y",mouse_position[1])
           .text(
-            parseFloat(highlight_data[0].value).toFixed(2)
-          );
+            parseFloat(highlight_data[0].value).toFixed(2)+", "+highlight_data[0].disagg_value
+          )
           var tooltip_bbox = tooltip.node().getBBox();
           tooltipBackground
           .attr("x",tooltip_bbox.x - 2)
@@ -371,6 +374,14 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var colorScale = d3.scaleOrdinal()
           .domain(allDisaggValues)
           .range(disaggPal);
+        var y = d3.scaleLinear()
+          .domain(d3.extent(filteredData, function(d) { return +d.value; }))
+          .range([ height, 0 ])
+          .nice();
+        var yAxis = d3.axisLeft().ticks(4).scale(y).tickSize(0).tickSizeOuter(0).tickSizeInner(-width).tickFormat( function(d) { return d + "%" } );
+        svg.append("g")
+          .attr('class', 'yaxis')
+          .call(yAxis);
         var x_max = d3.max(filteredData, function(d) { return d.year; });
         var x = d3.scaleLinear()
           .domain([0, x_max*2])
@@ -378,14 +389,16 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var xAxis = d3.axisBottom(x).tickValues(filteredData.map(function(d){ return d.year })).tickFormat(d3.format("d"));
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
+          .attr('class', 'xaxis')
           .call(xAxis);
-        var y = d3.scaleLinear()
-          .domain(d3.extent(filteredData, function(d) { return +d.value; }))
-          .range([ height, 0 ])
-          .nice();
-        var yAxis = d3.axisLeft().ticks(4).scale(y).tickSizeInner(-width);
-        svg.append("g")
-          .call(yAxis);
+        svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0-margin.left)
+          .attr("x",0 - (height / 5))
+          .attr("dy", "1em")
+          .attr('class','yaxistitle')
+          .style("text-anchor", "middle")
+          .text("Prevalence (%)");
         var disaggScale = d3.scaleBand()
             .domain(allDisaggValues)
             .range([0, width])
@@ -403,10 +416,10 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .on("mousemove", function(highlight_data){
                 var mouse_position = d3.mouse(this);
                 tooltip
-                .attr("x",mouse_position[0] + 5)
+                .attr("x",mouse_position[0] -30)
                 .attr("y",mouse_position[1])
                 .text(
-                  parseFloat(highlight_data.value).toFixed(2)
+                  parseFloat(highlight_data.value).toFixed(2)+", "+highlight_data.disagg_value
                 );
                 var tooltip_bbox = tooltip.node().getBBox();
                 tooltipBackground
@@ -424,16 +437,17 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
               });
           svg
             .append("rect")
-            .attr("x", width + 10)
-            .attr("y", i*15 - (10/2))
+            .attr("x", width + 20)
+            .attr("y", i*20 +4)
             .attr("width", 10)
             .attr("height", 10)
             .style("fill", function(d){ return colorScale(allDisaggValues[i]) });
           svg
             .append("text")
-            .attr("x", width + 25)
-            .attr("y", i*15 + 4)
-            .style("fill", "#443e42")
+            .attr("class","legend")
+            .attr("x", width + 40)
+            .attr("y", i*20 +12.5)
+            .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
             .style("font-size", "10px");
@@ -441,7 +455,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
   
         var tooltip = svg.append("text")
           .attr("class","tooltip")
-          .attr("font-size",12);
+          .attr("font-size",12)
+          .style("fill", "#475C6D");
         var tooltipBackground = svg.append("rect")
           .attr("class","tooltip-bg")
           .attr("fill","black")
@@ -475,7 +490,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .domain(d3.extent(filteredData, function(d) { return +d.value; }))
           .range([0, width])
           .nice();
-        var xAxis = d3.axisBottom(x).ticks(7);
+        var xAxis = d3.axisBottom(x).ticks(7).tickSizeOuter(0);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
           .attr("class","xaxis")
@@ -505,16 +520,17 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           svg
             .append("circle")
             .attr("cx", width + 10)
-            .attr("cy", i*15)
+            .attr("cy", i*20)
             .attr("r", 4)
             .style("stroke", function(d){ return colorScale(allDisaggValues[i]) })
             .style("stroke-width", 1.5)
             .attr("fill", "none");
           svg
             .append("text")
+            .attr("class","legend")
             .attr("x", width + 25)
-            .attr("y", i*15 + 4)
-            .style("fill", "#443e42")
+            .attr("y", i*20 + 4)
+            .style("fill", "#475C6D")
             .text(function(d){ return allDisaggValues[i] })
             .attr("text-anchor", "left")
             .style("font-size", "10px");
@@ -527,7 +543,8 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
 
       var tooltip = svg.append("text")
         .attr("class","tooltip")
-        .attr("font-size",12);
+        .attr("font-size",12)
+        .style("fill", "#475C6D");
       var tooltipBackground = svg.append("rect")
         .attr("class","tooltip-bg")
         .attr("fill","black")
@@ -550,7 +567,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .attr("x",mouse_position[0] + 5)
           .attr("y",mouse_position[1])
           .text(
-            parseFloat(highlight_data[0].value).toFixed(2)
+            parseFloat(highlight_data[0].value).toFixed(2)+", "+highlight_data[0].disagg_value
           );
           var tooltip_bbox = tooltip.node().getBBox();
           tooltipBackground
