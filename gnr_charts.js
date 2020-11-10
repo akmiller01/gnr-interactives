@@ -383,7 +383,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         var x = d3.scaleLinear()
           .domain([0, x_max*2])
           .range([0, width]);
-        var xAxis = d3.axisBottom(x).tickValues(filteredData.map(function(d){ return d.year })).tickFormat(d3.format("d"));
+        var xAxis = d3.axisBottom(x).tickSizeOuter(0).tickValues(filteredData.map(function(d){ return d.year })).tickFormat(d3.format("d"));
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
           .attr('class', 'xaxis')
