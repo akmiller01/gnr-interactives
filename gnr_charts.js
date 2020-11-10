@@ -227,7 +227,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       }else{
         var disaggPal = defaultPal;
       };
-      
       filteredData = filteredData.filter(function(d){ return d.value != "" && d.value !== undefined})
       var colorScale = d3.scaleOrdinal()
         .domain(allDisaggValues)
@@ -235,7 +234,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var x = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return d.year; }))
         .range([ 0, width ]);
-      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d"));
+      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(0);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .attr('class', 'xaxis')
@@ -244,10 +243,18 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
         .domain(d3.extent(filteredData, function(d) { return +d.value; }))
         .range([ height, 0 ])
         .nice();
-      var yAxis = d3.axisLeft().ticks(7).scale(y);
+      var yAxis = d3.axisLeft().ticks(4).scale(y).tickSize(0).tickSizeOuter(0).tickSizeInner(-width).tickFormat( function(d) { return d + "%" } );
         svg.append("g")
         .attr('class', 'yaxis')
         .call(yAxis);
+      svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0-margin.left)
+        .attr("x",0 - (height / 5))
+        .attr("dy", "1em")
+        .attr('class','yaxistitle')
+        .style("text-anchor", "middle")
+        .text("Prevalence (%)");
       for(var i = 0; i < allDisaggValues.length; i++){
         svg.append("path")
           .datum(filteredData.filter(function(d){return (d.disagg_value) ==allDisaggValues[i]}))
@@ -306,7 +313,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var highlight_data = filtered_data_by_year.filter(function(d){ return d.value == closest_value});
           if(Math.abs(closest_value_distance) < tooltip_threshold_y && Math.abs(closest_year_distance) < 0.5){
           tooltip
-          .attr("x",mouse_position[0] + 5)
+          .attr("x",mouse_position[0]-30)
           .attr("y",mouse_position[1])
           .text(
             parseFloat(highlight_data[0].value).toFixed(2)
@@ -376,7 +383,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .domain(d3.extent(filteredData, function(d) { return +d.value; }))
           .range([ height, 0 ])
           .nice();
-        var yAxis = d3.axisLeft().ticks(7).scale(y);
+        var yAxis = d3.axisLeft().ticks(4).scale(y).tickSizeInner(-width);
         svg.append("g")
           .call(yAxis);
         var disaggScale = d3.scaleBand()
@@ -490,7 +497,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("cx", function(d){return x(d.value)})
             .attr("cy", function(d){return y(d.indicator) + halfBandwidth})
             .attr("stroke", function(d){ return colorScale(d.disagg_value) })
-            .style("stroke-width", 1)
+            .style("stroke-width", 1.5)
             .attr("r", 4)
             .attr("fill", "none");
         }
@@ -501,6 +508,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
             .attr("cy", i*15)
             .attr("r", 4)
             .style("stroke", function(d){ return colorScale(allDisaggValues[i]) })
+            .style("stroke-width", 1.5)
             .attr("fill", "none");
           svg
             .append("text")
