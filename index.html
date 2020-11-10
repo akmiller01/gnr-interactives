@@ -149,13 +149,13 @@
         draw_gnr_chart("line","chart3", c3_data, margin2, width2, height2, legend_orders);
         c4_indicators = ["Wasting Percent", "Stunting Percent", "Overweight percent"]
         c4_data = all_data.filter(function(d){return c4_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart4", c4_data, margin3, width3, height3, legend_orders);
+        draw_gnr_chart("line","chart4", c4_data, margin2, width2, height2, legend_orders);
         c5_indicators = ["Adolescent Obesity", "Adolenscent Overweight", "Adolescent Underweight"]
         c5_data = all_data.filter(function(d){return c5_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart5", c5_data, margin3, width3, height3, legend_orders);
+        draw_gnr_chart("line","chart5", c5_data, margin2, width2, height2, legend_orders);
         c6_indicators = ["Adult Anemia", "Adult Blood Pressure", "Adult Diabetes", "Adult Obesity", "Adult Overweight", "Adult Sodium"]
         c6_data = all_data.filter(function(d){return c6_indicators.includes(d.indicator)})
-        draw_gnr_chart("line","chart6", c6_data, margin3, width3, height3, legend_orders);
+        draw_gnr_chart("line","chart6", c6_data, margin2, width2, height2, legend_orders);
       });
     </script>
   </body>
