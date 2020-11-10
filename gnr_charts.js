@@ -313,7 +313,6 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           var closest_value_distance = d3.min(filtered_data_by_year, function(d){ return Math.abs(y_pos - d.value)});
           var closest_value = filtered_data_by_year.filter(function(d){return Math.abs(y_pos - d.value) == closest_value_distance})[0].value;
           var highlight_data = filtered_data_by_year.filter(function(d){ return d.value == closest_value});
-          console.log(parseFloat(highlight_data[0].value).toFixed(2)+highlight_data[0].disaggregation+highlight_data[0].disagg_value)
           if(Math.abs(closest_value_distance) < tooltip_threshold_y && Math.abs(closest_year_distance) < 0.5){
           tooltip
           .attr("x",mouse_position[0]-30)
