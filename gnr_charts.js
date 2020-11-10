@@ -34,6 +34,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     }
     var overallSelect = chartNode
     .append("div");
+    .attr('class', 'overallselect')
     overallSelect
           .append("input")
           .attr("value", "Overall")
@@ -58,7 +59,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     var allIndicator = d3.map(data, function(d){return(d.indicator)}).keys();
     var indicatorSelect = chartNode
       .append("div");
-      
+      .attr('class', 'indicatorselect')
     for(var i = 0; i < allIndicator.length; i++){
         theIndicator = allIndicator[i]
         if(i == 0){
@@ -89,7 +90,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
     var currentDisaggregation = "";
     var disaggregationSelect = chartNode
       .append("div");
-
+      .attr('class', 'disaggregationselect')
     var svg = chartNode
       .append("svg")
         .attr('preserveAspectRatio', 'xMinYMin meet')
