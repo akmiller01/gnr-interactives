@@ -242,7 +242,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
       var x = d3.scaleLinear()
         .domain(d3.extent(filteredData, function(d) { return d.year; }))
         .range([ 0, width ]);
-      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(5);
+      var xAxis = d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")).tickSize(5).tickSizeOuter(0);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .attr('class', 'xaxis')
@@ -477,7 +477,7 @@ function draw_gnr_chart(chart_type, chart_id, data, margin, width, height, legen
           .domain(d3.extent(filteredData, function(d) { return +d.value; }))
           .range([0, width])
           .nice();
-        var xAxis = d3.axisBottom(x).ticks(7);
+        var xAxis = d3.axisBottom(x).ticks(7).tickSizeOuter(0);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
           .attr("class","xaxis")
